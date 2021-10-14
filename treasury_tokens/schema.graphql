@@ -4,3 +4,45 @@ type ExampleEntity @entity {
   owner: Bytes! # address
   spender: Bytes! # address
 }
+
+type Balance @entity {
+  id: ID!
+  value: BigInt!
+  timestamp: BigInt!
+  token:String!
+}
+
+type BalanceMinute @entity {
+  id: ID!
+  value: BigInt!
+  timestamp: BigInt!
+  second: [Balance!]!
+  token:String!
+
+}
+
+type BalanceHour @entity {
+  id: ID!
+  value: BigInt!
+  timestamp: BigInt!
+  minute: [BalanceMinute!]!
+  token:String!
+
+}
+
+type BalanceDay @entity {
+  id: ID!
+  value: BigInt!
+  timestamp: BigInt!
+  hour: [BalanceHour!]!
+  token:String!
+
+}
+
+type BalanceYear @entity {
+  id: ID!
+  value: BigInt!
+  timestamp: BigInt!
+  day: [BalanceDay!]!
+  token:String!
+}
