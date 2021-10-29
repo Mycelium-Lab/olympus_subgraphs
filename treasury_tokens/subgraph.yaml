@@ -137,5 +137,24 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/UniswapV2.ts
-
+  - kind: ethereum/contract
+    name: WETH
+    network: mainnet
+    source:
+      address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      abi: WETH
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  WETH
+          file: ./abis/WETH.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/WETH.ts
       

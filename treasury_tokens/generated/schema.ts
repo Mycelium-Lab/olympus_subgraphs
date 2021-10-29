@@ -81,7 +81,7 @@ export class Balance extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("value", Value.fromBigInt(BigInt.zero()));
+    this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("token", Value.fromString(""));
   }
@@ -112,13 +112,13 @@ export class Balance extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get value(): BigInt {
+  get value(): BigDecimal {
     let value = this.get("value");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set value(value: BigInt) {
-    this.set("value", Value.fromBigInt(value));
+  set value(value: BigDecimal) {
+    this.set("value", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt {
@@ -145,7 +145,7 @@ export class BalanceMinute extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("value", Value.fromBigInt(BigInt.zero()));
+    this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("second", Value.fromStringArray(new Array(0)));
     this.set("token", Value.fromString(""));
@@ -177,13 +177,13 @@ export class BalanceMinute extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get value(): BigInt {
+  get value(): BigDecimal {
     let value = this.get("value");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set value(value: BigInt) {
-    this.set("value", Value.fromBigInt(value));
+  set value(value: BigDecimal) {
+    this.set("value", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt {
@@ -219,7 +219,7 @@ export class BalanceHour extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("value", Value.fromBigInt(BigInt.zero()));
+    this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("minute", Value.fromStringArray(new Array(0)));
     this.set("token", Value.fromString(""));
@@ -251,13 +251,13 @@ export class BalanceHour extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get value(): BigInt {
+  get value(): BigDecimal {
     let value = this.get("value");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set value(value: BigInt) {
-    this.set("value", Value.fromBigInt(value));
+  set value(value: BigDecimal) {
+    this.set("value", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt {
@@ -293,7 +293,7 @@ export class BalanceDay extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("value", Value.fromBigInt(BigInt.zero()));
+    this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("hour", Value.fromStringArray(new Array(0)));
     this.set("token", Value.fromString(""));
@@ -325,13 +325,13 @@ export class BalanceDay extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get value(): BigInt {
+  get value(): BigDecimal {
     let value = this.get("value");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set value(value: BigInt) {
-    this.set("value", Value.fromBigInt(value));
+  set value(value: BigDecimal) {
+    this.set("value", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt {
@@ -367,7 +367,7 @@ export class BalanceYear extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("value", Value.fromBigInt(BigInt.zero()));
+    this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("day", Value.fromStringArray(new Array(0)));
     this.set("token", Value.fromString(""));
@@ -399,13 +399,13 @@ export class BalanceYear extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get value(): BigInt {
+  get value(): BigDecimal {
     let value = this.get("value");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set value(value: BigInt) {
-    this.set("value", Value.fromBigInt(value));
+  set value(value: BigDecimal) {
+    this.set("value", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt {

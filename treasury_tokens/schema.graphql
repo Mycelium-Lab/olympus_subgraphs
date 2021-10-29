@@ -7,14 +7,14 @@ type ExampleEntity @entity {
 
 type Balance @entity {
   id: ID!
-  value: BigInt!
+  value: BigDecimal!
   timestamp: BigInt!
   token:String!
 }
 
 type BalanceMinute @entity {
   id: ID!
-  value: BigInt!
+  value: BigDecimal!
   timestamp: BigInt!
   second: [Balance!]!
   token:String!
@@ -23,7 +23,7 @@ type BalanceMinute @entity {
 
 type BalanceHour @entity {
   id: ID!
-  value: BigInt!
+  value: BigDecimal!
   timestamp: BigInt!
   minute: [BalanceMinute!]!
   token:String!
@@ -32,7 +32,7 @@ type BalanceHour @entity {
 
 type BalanceDay @entity {
   id: ID!
-  value: BigInt!
+  value: BigDecimal!
   timestamp: BigInt!
   hour: [BalanceHour!]!
   token:String!
@@ -41,7 +41,7 @@ type BalanceDay @entity {
 
 type BalanceYear @entity {
   id: ID!
-  value: BigInt!
+  value: BigDecimal!
   timestamp: BigInt!
   day: [BalanceDay!]!
   token:String!

@@ -8,7 +8,7 @@ import {Balance,BalanceMinute,BalanceHour,BalanceDay , BalanceYear} from "../../
  * @param audited 
  * @param timeStamp 
  */
-export function balanceAdded(value: BigInt,to:boolean,timeStamp:BigInt,SUFFIX:string,token:string):void{
+export function balanceAdded(value: BigDecimal,to:boolean,timeStamp:BigInt,SUFFIX:string,token:string):void{
 
     let number:i64 =Number.parseInt(timeStamp.toString(),10) as i64;
     number*=1000;
@@ -23,7 +23,7 @@ export function balanceAdded(value: BigInt,to:boolean,timeStamp:BigInt,SUFFIX:st
         if(to){
             year.value=value;
         }else{
-            year.value=BigInt.zero().minus(value);
+            year.value=BigDecimal.zero().minus(value);
         }
         year.save();
     }else {

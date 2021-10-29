@@ -10,6 +10,8 @@ import {
 } from "../generated/Contract/Contract"
 import { ExampleEntity,Balance } from "../generated/schema"
 import { balanceAdded} from "./utils/YersToken" 
+import {toDecimal} from './utils/Decimals'
+
 import {SUSHI_SUFFIX} from "./utils/Suffix"
 export function handleApproval(event: Approval): void {
   // Entities can be loaded from the store using a string ID; this ID
@@ -85,14 +87,14 @@ export function handleSync(event: Sync): void {}
 export function handleTransfer(event: Transfer): void {
   if(event.params.from==Bytes.fromHexString("0x31F8Cc382c9898b273eff4e0b7626a6987C846E8")){
     
-    balanceAdded(event.params.value,false,event.block.timestamp,SUSHI_SUFFIX, "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c");
+    balanceAdded(toDecimal(event.params.value,18),false,event.block.timestamp,SUSHI_SUFFIX, "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c");
     
   }
   
   if(event.params.to== Bytes.fromHexString("0x31F8Cc382c9898b273eff4e0b7626a6987C846E8"))
   { 
 
-    balanceAdded(event.params.value,true,event.block.timestamp,SUSHI_SUFFIX, "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c");
+    balanceAdded(toDecimal(event.params.value,18),true,event.block.timestamp,SUSHI_SUFFIX, "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c");
    
   }
 }
