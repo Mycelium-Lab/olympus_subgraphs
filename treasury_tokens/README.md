@@ -1,7 +1,7 @@
-# Subgraph for token is used by olympus
+# Subgraph for Tracking Major Tokens Owned by OlympusDAO Treasury Contract 
 
 ## Tracks
-balance tokens
+Track Treasury balances for the following token
 1. WETH
 2. DAI
 3. LUSD
