@@ -1,0 +1,389 @@
+type DepositYearEntity @entity
+{ 
+  id: ID!
+  transaction: Transaction
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  newBCV: BigDecimal!
+  initBCV: BigDecimal!
+  addition: Boolean!
+  adjustment: BigDecimal!
+  expires: BigInt!
+  priceInUSD: BigDecimal!
+  token: Token
+  value: BigDecimal!
+  timestamp: BigInt!
+  ohmReserve: BigDecimal!
+  depositCount: BigInt!
+  redeemCount: BigInt!
+  dayDeposit:[DepositDayEntity!]!
+}
+
+type DepositDayEntity @entity
+{ 
+  id: ID!
+  transaction: Transaction
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  expires: BigInt!
+  priceInUSD: BigDecimal!
+  token: Token
+  newBCV: BigDecimal!
+  initBCV: BigDecimal!
+  addition: Boolean!
+  adjustment: BigDecimal!
+  value: BigDecimal!
+  timestamp: BigInt!
+  ohmReserve: BigDecimal!
+  depositCount: BigInt!
+  redeemCount: BigInt!
+  hourDeposit:[DepositHourEntity!]!
+}
+
+type DepositHourEntity @entity
+{ 
+  id: ID!
+  transaction: Transaction
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  expires: BigInt!
+  priceInUSD: BigDecimal!
+  token: Token
+  value: BigDecimal!
+  timestamp: BigInt!
+  newBCV: BigDecimal!
+  initBCV: BigDecimal!
+  addition: Boolean!
+  adjustment: BigDecimal!
+  ohmReserve: BigDecimal!
+  depositCount: BigInt!
+  redeemCount: BigInt!
+  minuteDeposit:[DepositMinuteEntity!]!
+}
+
+type DepositMinuteEntity @entity
+{ 
+  id: ID!
+  transaction: Transaction
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  expires: BigInt!
+  priceInUSD: BigDecimal!
+  token: Token
+  value: BigDecimal!
+  timestamp: BigInt!
+  newBCV: BigDecimal!
+  initBCV: BigDecimal!
+  addition: Boolean!
+  adjustment: BigDecimal!
+  ohmReserve: BigDecimal!
+  depositCount: BigInt!
+  redeemCount: BigInt!
+  secondDeposit:[Deposit!]!
+}
+
+type Deposit @entity {
+  id: ID!
+  transaction: Transaction
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  expires: BigInt!
+  priceInUSD: BigDecimal!
+  token: Token
+  value: BigDecimal!
+  timestamp: BigInt!
+  ohmReserve: BigDecimal!
+  totalDepositedDAI: BigDecimal!
+  totalDepositedETH: BigDecimal!
+  totalDepositedFRAX: BigDecimal!
+  totalDepositedLUSD: BigDecimal!
+  totalDepositedOHMDAI: BigDecimal!
+  totalDepositedOHMFRAX: BigDecimal!
+  depositCount: BigInt!
+  redeemCount: BigInt!
+}
+
+type Redemption @entity {
+  id: ID!
+  transaction: Transaction
+  payout: BigDecimal!
+  token: Token
+  totalRedeemd: BigDecimal!
+  ohmReserve: BigDecimal!
+  timestamp: BigInt
+}
+
+type StakeYear @entity {
+  id: ID!
+  token: Token
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  currentStaked: BigDecimal!
+   
+  totalStaked: BigDecimal!
+  totalUnstaked: BigDecimal!
+  amountStaked: BigDecimal!
+  stakeAverage: BigDecimal!
+  stakeMax: BigDecimal!
+  amountUnstaked: BigDecimal!
+  unstakeAverage: BigDecimal!
+  unstakeMax: BigDecimal!
+  stakeCount: BigInt!
+  unstakeCount: BigInt!
+  timestamp: BigInt!
+  dayStake: [StakeDay!]!
+}
+
+type StakeDay @entity {
+  id: ID!
+  token: Token
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  totalStaked: BigDecimal!
+  totalUnstaked: BigDecimal!
+  amountStaked: BigDecimal!
+  stakeAverage: BigDecimal!
+  stakeMax: BigDecimal!
+  amountUnstaked: BigDecimal!
+  unstakeAverage: BigDecimal!
+  unstakeMax: BigDecimal!
+  stakeCount: BigInt!
+  unstakeCount: BigInt!
+  currentStaked: BigDecimal!
+   
+  timestamp: BigInt!
+  hourStake: [StakeHour!]!
+}
+
+type StakeHour @entity {
+  id: ID!
+  token: Token
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  totalStaked: BigDecimal!
+  totalUnstaked: BigDecimal!
+  amountStaked: BigDecimal!
+  stakeAverage: BigDecimal!
+  stakeMax: BigDecimal!
+  amountUnstaked: BigDecimal!
+  unstakeAverage: BigDecimal!
+  unstakeMax: BigDecimal!
+  stakeCount: BigInt!
+  unstakeCount: BigInt!
+  currentStaked: BigDecimal!
+   
+  timestamp: BigInt!
+  minuteStake: [StakeMinute!]!
+}
+
+type StakeMinute @entity {
+  id: ID!
+  token: Token
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  totalStaked: BigDecimal!
+  totalUnstaked: BigDecimal!
+  amountStaked: BigDecimal!
+  stakeAverage: BigDecimal!
+  stakeMax: BigDecimal!
+  amountUnstaked: BigDecimal!
+  unstakeAverage: BigDecimal!
+  unstakeMax: BigDecimal!
+  stakeCount: BigInt!
+  unstakeCount: BigInt!
+  currentStaked: BigDecimal!
+   
+  timestamp: BigInt!
+  secondStake: [Stake!]!
+}
+
+type Stake @entity {
+  id: ID!
+  token: Token
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  totalStaked: BigDecimal!
+  totalUnstaked: BigDecimal!
+  amountStaked: BigDecimal!
+  stakeAverage: BigDecimal!
+  stakeMax: BigDecimal!
+  amountUnstaked: BigDecimal!
+  unstakeAverage: BigDecimal!
+  unstakeMax: BigDecimal!
+  stakeCount: BigInt!
+  unstakeCount: BigInt!
+  currentStaked: BigDecimal!
+  from: Bytes!
+   
+  timestamp: BigInt!
+}
+
+type Unstake @entity {
+  id: ID!
+  protocolMetric: ProtocolMetric!
+  transaction: Transaction!
+  totalUnstaked: BigDecimal!
+  unstakeCount: BigInt!
+  currentStaked: BigDecimal!
+  amount: BigDecimal!
+  from: Bytes!
+  timestamp: BigInt!
+}
+
+type PriceChange @entity {
+  id: ID!
+  transaction: Transaction
+  priceInUSD: BigDecimal!
+  internalPrice: BigDecimal!
+  ratio: BigDecimal!
+  token: Token
+  timestamp: BigInt
+}
+
+type VariableAdjustment @entity {
+  id: ID!
+  transaction: Transaction
+  initialBCV: BigDecimal!
+  newBCV: BigDecimal!
+  adjustment: BigDecimal!
+  addition: Boolean
+  token: Token
+  timestamp: BigInt
+}
+
+type DailyStakingReward @entity {
+  id: ID!
+  timestamp: BigInt!
+  amount: BigDecimal!
+  value: BigDecimal!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  blockHash: Bytes!
+  from: Bytes!
+  to: Bytes
+  value: BigInt!
+  gasUsed: BigInt!
+  gasPrice: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  timestamp: BigInt!
+
+}
+
+type ProtocolMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  ohmCirculatingSupply: BigDecimal!
+  sOhmCirculatingSupply: BigDecimal!
+  totalSupply: BigDecimal!
+  ohmPrice: BigDecimal!
+  marketCap: BigDecimal!
+  totalValueLocked: BigDecimal!
+  treasuryRiskFreeValue: BigDecimal!
+  treasuryMarketValue: BigDecimal!
+  nextEpochRebase: BigDecimal!
+  nextDistributedOhm: BigDecimal!
+  treasuryDaiRiskFreeValue: BigDecimal!
+  treasuryFraxRiskFreeValue: BigDecimal!
+  treasuryDaiMarketValue: BigDecimal!
+  treasuryFraxMarketValue: BigDecimal!
+  treasuryXsushiMarketValue: BigDecimal!
+  treasuryWETHMarketValue: BigDecimal!
+  currentAPY: BigDecimal!
+  runway10k: BigDecimal
+  runway20k: BigDecimal
+  runway50k: BigDecimal
+  runway70k: BigDecimal
+  runway100k: BigDecimal
+  runwayCurrent: BigDecimal
+  treasuryOhmDaiPOL: BigDecimal!
+  treasuryOhmFraxPOL: BigDecimal!
+  holders: BigInt!
+}
+
+type ContractInfo @entity {
+  id: ID!
+  name: String
+  contract: String
+  amount: BigDecimal
+}
+
+type Aux @entity {
+  id: ID!
+  value: BigInt!
+}
+
+type Rebase @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedOhms: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  profit: BigDecimal!
+  amountUSD: BigDecimal!
+}
+
+type RebaseYear @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedOhms: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  profit: BigDecimal!
+  amountUSD: BigDecimal!
+
+  dayRebase: [RebaseDay!]!
+}
+
+type RebaseDay @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedOhms: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  profit: BigDecimal!
+  amountUSD: BigDecimal!
+  hourRebase: [RebaseHour!]!
+}
+
+type RebaseHour @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedOhms: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  profit: BigDecimal!
+  amountUSD: BigDecimal!
+  minuteRebase: [RebaseMinute!]!
+}
+
+type RebaseMinute @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedOhms: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  profit: BigDecimal!
+  amountUSD: BigDecimal!
+}
