@@ -37,6 +37,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Transfer
+        - LogRebase
       abis:
         - name: sOHM2
           file: ./abis/sOHM2.json
@@ -45,4 +46,6 @@ dataSources:
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
+        - event: LogRebase(indexed uint256,uint256,uint256)
+          handler: handleLogRebase
       file: ./src/mapping2.ts

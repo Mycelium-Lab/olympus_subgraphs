@@ -528,6 +528,466 @@ export class HourBalance extends Entity {
   }
 }
 
+export class LogRebase extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save LogRebase entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save LogRebase entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("LogRebase", id.toString(), this);
+    }
+  }
+
+  static load(id: string): LogRebase | null {
+    return changetype<LogRebase | null>(store.get("LogRebase", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set timestamp(value: BigInt | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get epoch(): BigInt | null {
+    let value = this.get("epoch");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set epoch(value: BigInt | null) {
+    if (!value) {
+      this.unset("epoch");
+    } else {
+      this.set("epoch", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get rebase(): BigInt | null {
+    let value = this.get("rebase");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set rebase(value: BigInt | null) {
+    if (!value) {
+      this.unset("rebase");
+    } else {
+      this.set("rebase", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get index(): BigInt | null {
+    let value = this.get("index");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set index(value: BigInt | null) {
+    if (!value) {
+      this.unset("index");
+    } else {
+      this.set("index", Value.fromBigInt(<BigInt>value));
+    }
+  }
+}
+
+export class LogRebaseDaily extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save LogRebaseDaily entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save LogRebaseDaily entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("LogRebaseDaily", id.toString(), this);
+    }
+  }
+
+  static load(id: string): LogRebaseDaily | null {
+    return changetype<LogRebaseDaily | null>(store.get("LogRebaseDaily", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): string | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set timestamp(value: string | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromString(<string>value));
+    }
+  }
+
+  get epoch(): BigInt | null {
+    let value = this.get("epoch");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set epoch(value: BigInt | null) {
+    if (!value) {
+      this.unset("epoch");
+    } else {
+      this.set("epoch", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get rebase(): BigInt | null {
+    let value = this.get("rebase");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set rebase(value: BigInt | null) {
+    if (!value) {
+      this.unset("rebase");
+    } else {
+      this.set("rebase", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get hours(): Array<string> | null {
+    let value = this.get("hours");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set hours(value: Array<string> | null) {
+    if (!value) {
+      this.unset("hours");
+    } else {
+      this.set("hours", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+
+  get index(): BigInt | null {
+    let value = this.get("index");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set index(value: BigInt | null) {
+    if (!value) {
+      this.unset("index");
+    } else {
+      this.set("index", Value.fromBigInt(<BigInt>value));
+    }
+  }
+}
+
+export class LogRebaseHourly extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("logRebaseDaily", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save LogRebaseHourly entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save LogRebaseHourly entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("LogRebaseHourly", id.toString(), this);
+    }
+  }
+
+  static load(id: string): LogRebaseHourly | null {
+    return changetype<LogRebaseHourly | null>(store.get("LogRebaseHourly", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): string | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set timestamp(value: string | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromString(<string>value));
+    }
+  }
+
+  get epoch(): BigInt | null {
+    let value = this.get("epoch");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set epoch(value: BigInt | null) {
+    if (!value) {
+      this.unset("epoch");
+    } else {
+      this.set("epoch", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get rebase(): BigInt | null {
+    let value = this.get("rebase");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set rebase(value: BigInt | null) {
+    if (!value) {
+      this.unset("rebase");
+    } else {
+      this.set("rebase", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get logRebaseDaily(): string {
+    let value = this.get("logRebaseDaily");
+    return value!.toString();
+  }
+
+  set logRebaseDaily(value: string) {
+    this.set("logRebaseDaily", Value.fromString(value));
+  }
+
+  get minutes(): Array<string> | null {
+    let value = this.get("minutes");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set minutes(value: Array<string> | null) {
+    if (!value) {
+      this.unset("minutes");
+    } else {
+      this.set("minutes", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+
+  get index(): BigInt | null {
+    let value = this.get("index");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set index(value: BigInt | null) {
+    if (!value) {
+      this.unset("index");
+    } else {
+      this.set("index", Value.fromBigInt(<BigInt>value));
+    }
+  }
+}
+
+export class LogRebaseMinute extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("logRebaseHourly", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save LogRebaseMinute entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save LogRebaseMinute entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("LogRebaseMinute", id.toString(), this);
+    }
+  }
+
+  static load(id: string): LogRebaseMinute | null {
+    return changetype<LogRebaseMinute | null>(store.get("LogRebaseMinute", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): string | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set timestamp(value: string | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromString(<string>value));
+    }
+  }
+
+  get epoch(): BigInt | null {
+    let value = this.get("epoch");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set epoch(value: BigInt | null) {
+    if (!value) {
+      this.unset("epoch");
+    } else {
+      this.set("epoch", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get rebase(): BigInt | null {
+    let value = this.get("rebase");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set rebase(value: BigInt | null) {
+    if (!value) {
+      this.unset("rebase");
+    } else {
+      this.set("rebase", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get logRebaseHourly(): string {
+    let value = this.get("logRebaseHourly");
+    return value!.toString();
+  }
+
+  set logRebaseHourly(value: string) {
+    this.set("logRebaseHourly", Value.fromString(value));
+  }
+
+  get index(): BigInt | null {
+    let value = this.get("index");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set index(value: BigInt | null) {
+    if (!value) {
+      this.unset("index");
+    } else {
+      this.set("index", Value.fromBigInt(<BigInt>value));
+    }
+  }
+}
+
 export class DailyBalance extends Entity {
   constructor(id: string) {
     super();
