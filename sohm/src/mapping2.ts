@@ -47,13 +47,13 @@ export function handleLogRebase(event: LogRebase): void {
 
 function rebaseDaily(event: LogRebase): void {
 
-  let entity = LogRebaseDaily.load(event.block.timestamp.toString())
+  let thisTimestamp = dayFromTimestamp(event.block.timestamp)
+
+  let entity = LogRebaseDaily.load(thisTimestamp.toString())
 
   if (!entity) {
-    entity = new LogRebaseDaily(event.block.timestamp.toString())
+    entity = new LogRebaseDaily(thisTimestamp.toString())
   }
-
-  let thisTimestamp = dayFromTimestamp(event.block.timestamp)
 
   entity.timestamp = thisTimestamp
   entity.epoch = event.params.epoch
@@ -68,18 +68,20 @@ function rebaseDaily(event: LogRebase): void {
 
 function rebaseHourly(event: LogRebase, day_ts: String): void {
 
-  let entity = LogRebaseHourly.load(`${day_ts}-${event.block.timestamp}`)
+  let thisTimestamp = hourFromTimestamp(event.block.timestamp)
+
+  let entity = LogRebaseHourly.load(`${day_ts}-${thisTimestamp}`)
 
   if (!entity) {
-    entity = new LogRebaseHourly(`${day_ts}-${event.block.timestamp}`)
+    entity = new LogRebaseHourly(`${day_ts}-${thisTimestamp}`)
   }
 
-  let thisTimestamp = hourFromTimestamp(event.block.timestamp)
+  
   entity.timestamp = thisTimestamp
   entity.epoch = event.params.epoch
   entity.rebase = event.params.rebase
   entity.index = event.params.index
-  entity.logRebaseDaily = event.block.timestamp.toString()
+  entity.logRebaseDaily = day_ts
   entity.save()
 
   rebaseMinutely(event, day_ts, thisTimestamp)
