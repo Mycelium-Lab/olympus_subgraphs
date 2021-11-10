@@ -546,30 +546,37 @@ export class Minter extends Entity {
   }
 }
 
-export class totalSupply extends Entity {
+export class totalSupplyDaily extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
 
     this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
-    this.set("ohmBalance", Value.fromBigInt(BigInt.zero()));
+    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save totalSupply entity without an ID");
+    assert(id != null, "Cannot save totalSupplyDaily entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save totalSupply entity with non-string ID. " +
+        "Cannot save totalSupplyDaily entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("totalSupply", id.toString(), this);
+      store.set("totalSupplyDaily", id.toString(), this);
     }
   }
 
-  static load(id: string): totalSupply | null {
-    return changetype<totalSupply | null>(store.get("totalSupply", id));
+  static load(id: string): totalSupplyDaily | null {
+    return changetype<totalSupplyDaily | null>(
+      store.get("totalSupplyDaily", id)
+    );
   }
 
   get id(): string {
@@ -590,30 +597,58 @@ export class totalSupply extends Entity {
     this.set("totalWallets", Value.fromBigInt(value));
   }
 
-  get ohmBalance(): BigInt {
+  get ohmBalance(): BigDecimal {
     let value = this.get("ohmBalance");
-    return value!.toBigInt();
+    return value!.toBigDecimal();
   }
 
-  set ohmBalance(value: BigInt) {
-    this.set("ohmBalance", Value.fromBigInt(value));
+  set ohmBalance(value: BigDecimal) {
+    this.set("ohmBalance", Value.fromBigDecimal(value));
   }
 
-  get day(): BigInt | null {
-    let value = this.get("day");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigInt();
-    }
+  get dollarBalance(): BigDecimal {
+    let value = this.get("dollarBalance");
+    return value!.toBigDecimal();
   }
 
-  set day(value: BigInt | null) {
-    if (!value) {
-      this.unset("day");
-    } else {
-      this.set("day", Value.fromBigInt(<BigInt>value));
-    }
+  set dollarBalance(value: BigDecimal) {
+    this.set("dollarBalance", Value.fromBigDecimal(value));
+  }
+
+  get circulatingSupply(): BigDecimal {
+    let value = this.get("circulatingSupply");
+    return value!.toBigDecimal();
+  }
+
+  set circulatingSupply(value: BigDecimal) {
+    this.set("circulatingSupply", Value.fromBigDecimal(value));
+  }
+
+  get marketCapacity(): BigDecimal {
+    let value = this.get("marketCapacity");
+    return value!.toBigDecimal();
+  }
+
+  set marketCapacity(value: BigDecimal) {
+    this.set("marketCapacity", Value.fromBigDecimal(value));
+  }
+
+  get daoOhmBalance(): BigDecimal {
+    let value = this.get("daoOhmBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoOhmBalance(value: BigDecimal) {
+    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  }
+
+  get daoDollarBalance(): BigDecimal {
+    let value = this.get("daoDollarBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoDollarBalance(value: BigDecimal) {
+    this.set("daoDollarBalance", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt | null {
@@ -631,6 +666,306 @@ export class totalSupply extends Entity {
     } else {
       this.set("timestamp", Value.fromBigInt(<BigInt>value));
     }
+  }
+
+  get hours(): Array<string> | null {
+    let value = this.get("hours");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set hours(value: Array<string> | null) {
+    if (!value) {
+      this.unset("hours");
+    } else {
+      this.set("hours", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+}
+
+export class totalSupplyHourly extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
+    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupplyDaily", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save totalSupplyHourly entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save totalSupplyHourly entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("totalSupplyHourly", id.toString(), this);
+    }
+  }
+
+  static load(id: string): totalSupplyHourly | null {
+    return changetype<totalSupplyHourly | null>(
+      store.get("totalSupplyHourly", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get totalWallets(): BigInt {
+    let value = this.get("totalWallets");
+    return value!.toBigInt();
+  }
+
+  set totalWallets(value: BigInt) {
+    this.set("totalWallets", Value.fromBigInt(value));
+  }
+
+  get ohmBalance(): BigDecimal {
+    let value = this.get("ohmBalance");
+    return value!.toBigDecimal();
+  }
+
+  set ohmBalance(value: BigDecimal) {
+    this.set("ohmBalance", Value.fromBigDecimal(value));
+  }
+
+  get dollarBalance(): BigDecimal {
+    let value = this.get("dollarBalance");
+    return value!.toBigDecimal();
+  }
+
+  set dollarBalance(value: BigDecimal) {
+    this.set("dollarBalance", Value.fromBigDecimal(value));
+  }
+
+  get circulatingSupply(): BigDecimal {
+    let value = this.get("circulatingSupply");
+    return value!.toBigDecimal();
+  }
+
+  set circulatingSupply(value: BigDecimal) {
+    this.set("circulatingSupply", Value.fromBigDecimal(value));
+  }
+
+  get marketCapacity(): BigDecimal {
+    let value = this.get("marketCapacity");
+    return value!.toBigDecimal();
+  }
+
+  set marketCapacity(value: BigDecimal) {
+    this.set("marketCapacity", Value.fromBigDecimal(value));
+  }
+
+  get daoOhmBalance(): BigDecimal {
+    let value = this.get("daoOhmBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoOhmBalance(value: BigDecimal) {
+    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  }
+
+  get daoDollarBalance(): BigDecimal {
+    let value = this.get("daoDollarBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoDollarBalance(value: BigDecimal) {
+    this.set("daoDollarBalance", Value.fromBigDecimal(value));
+  }
+
+  get timestamp(): BigInt | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set timestamp(value: BigInt | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get totalSupplyDaily(): string {
+    let value = this.get("totalSupplyDaily");
+    return value!.toString();
+  }
+
+  set totalSupplyDaily(value: string) {
+    this.set("totalSupplyDaily", Value.fromString(value));
+  }
+
+  get minutes(): Array<string> | null {
+    let value = this.get("minutes");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set minutes(value: Array<string> | null) {
+    if (!value) {
+      this.unset("minutes");
+    } else {
+      this.set("minutes", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+}
+
+export class totalSupplyMinutely extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
+    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupplyHourly", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save totalSupplyMinutely entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save totalSupplyMinutely entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("totalSupplyMinutely", id.toString(), this);
+    }
+  }
+
+  static load(id: string): totalSupplyMinutely | null {
+    return changetype<totalSupplyMinutely | null>(
+      store.get("totalSupplyMinutely", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get totalWallets(): BigInt {
+    let value = this.get("totalWallets");
+    return value!.toBigInt();
+  }
+
+  set totalWallets(value: BigInt) {
+    this.set("totalWallets", Value.fromBigInt(value));
+  }
+
+  get ohmBalance(): BigDecimal {
+    let value = this.get("ohmBalance");
+    return value!.toBigDecimal();
+  }
+
+  set ohmBalance(value: BigDecimal) {
+    this.set("ohmBalance", Value.fromBigDecimal(value));
+  }
+
+  get dollarBalance(): BigDecimal {
+    let value = this.get("dollarBalance");
+    return value!.toBigDecimal();
+  }
+
+  set dollarBalance(value: BigDecimal) {
+    this.set("dollarBalance", Value.fromBigDecimal(value));
+  }
+
+  get circulatingSupply(): BigDecimal {
+    let value = this.get("circulatingSupply");
+    return value!.toBigDecimal();
+  }
+
+  set circulatingSupply(value: BigDecimal) {
+    this.set("circulatingSupply", Value.fromBigDecimal(value));
+  }
+
+  get marketCapacity(): BigDecimal {
+    let value = this.get("marketCapacity");
+    return value!.toBigDecimal();
+  }
+
+  set marketCapacity(value: BigDecimal) {
+    this.set("marketCapacity", Value.fromBigDecimal(value));
+  }
+
+  get daoOhmBalance(): BigDecimal {
+    let value = this.get("daoOhmBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoOhmBalance(value: BigDecimal) {
+    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  }
+
+  get daoDollarBalance(): BigDecimal {
+    let value = this.get("daoDollarBalance");
+    return value!.toBigDecimal();
+  }
+
+  set daoDollarBalance(value: BigDecimal) {
+    this.set("daoDollarBalance", Value.fromBigDecimal(value));
+  }
+
+  get timestamp(): BigInt | null {
+    let value = this.get("timestamp");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set timestamp(value: BigInt | null) {
+    if (!value) {
+      this.unset("timestamp");
+    } else {
+      this.set("timestamp", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get totalSupplyHourly(): string {
+    let value = this.get("totalSupplyHourly");
+    return value!.toString();
+  }
+
+  set totalSupplyHourly(value: string) {
+    this.set("totalSupplyHourly", Value.fromString(value));
   }
 }
 

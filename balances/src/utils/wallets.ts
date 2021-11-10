@@ -1,9 +1,15 @@
 import { Address, BigDecimal, BigInt, log, Bytes } from '@graphprotocol/graph-ts'
-import { Balance, Wallet, totalSupply, DailyBalance, HourBalance, MinuteBalance } from '../../generated/schema'
-import {SOHM_ERC20_CONTRACT, OHM_ERC20_CONTRACT} from './Constants'
+import { Balance, Wallet, totalSupplyDaily, totalSupplyHourly, totalSupplyMinutely ,DailyBalance, HourBalance, MinuteBalance } from '../../generated/schema'
+import {SOHM_ERC20_CONTRACT, OHM_ERC20_CONTRACT, SUSHI_OHMDAI_PAIR} from './Constants'
 import {
   wOHM
 } from "../../generated/wOHM/wOHM"
+
+import { UniswapV2Pair } from '../../generated/wOHM/UniswapV2Pair';
+
+let BIG_DECIMAL_1E9 = BigDecimal.fromString('1e9')
+let BIG_DECIMAL_1E12 = BigDecimal.fromString('1e12')
+
 
 export function createBalance(address: Bytes, timestamp: BigInt, id: Bytes): Balance {
 
@@ -52,6 +58,7 @@ export function createDailyBalance(address: Bytes, timestamp: BigInt): DailyBala
   entity.save()
   let hourBalance = createHourBalance(address, timestamp)
   return entity as DailyBalance
+
 
 }
 
@@ -106,26 +113,104 @@ export function createMinuteBalance(address: Bytes, timestamp: BigInt): MinuteBa
 
 }
 
-export function createTotals(timestamp: BigInt): totalSupply {
+export function createTotalsDaily(timestamp: BigInt): void {
 
   let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
   number*=1000;
-  const date: Date = new Date( number);
+  const date: Date = new Date( number );
 
-  let total = totalSupply.load(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
+  let total = totalSupplyDaily.load(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
   if (!total) {
-    total = new totalSupply(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
+    total = new totalSupplyDaily(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
     total.totalWallets = BigInt.fromI32(0)
   }
   let currentTotal = total.totalWallets
-  total.day = BigInt.fromString(getNumberDayFromDate(date).toString())
+
+  // ohm 
+  let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
+  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
+  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
+
+  //usd
+  let usdRate = getOHMUSDRate()
+  total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
+  total.dollarBalance = total.ohmBalance.times(usdRate)
+  total.marketCapacity = total.circulatingSupply.times(usdRate)
+
   total.timestamp = timestamp
-  total.totalWallets = currentTotal + BigInt.fromI32(1)
+  //total.totalWallets = currentTotal + BigInt.fromI32(1)
   total.save()
 
-  return total as totalSupply
+}
+
+export function createTotalsHourly(timestamp: BigInt): void {
+
+  let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
+  number*=1000;
+  const date: Date = new Date( number );
+
+  let total = totalSupplyHourly.load(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}`)
+  if (!total) {
+    total = new totalSupplyHourly(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}`)
+    total.totalWallets = BigInt.fromI32(0)
+  }
+  let currentTotal = total.totalWallets
+
+  // ohm 
+  let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
+  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
+  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
+
+  total.totalSupplyDaily = `${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`
+
+  //usd
+  let usdRate = getOHMUSDRate()
+  total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
+  total.dollarBalance = total.ohmBalance.times(usdRate)
+  total.marketCapacity = total.circulatingSupply.times(usdRate)
+
+  total.timestamp = timestamp
+  //total.totalWallets = currentTotal + BigInt.fromI32(1)
+  total.save()
 
 }
+
+export function createTotalsMinutely(timestamp: BigInt): void {
+
+  let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
+  number*=1000;
+  const date: Date = new Date( number );
+
+  let total = totalSupplyMinutely.load(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}-${date.getUTCMinutes()}`)
+  if (!total) {
+    total = new totalSupplyMinutely(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}-${date.getUTCMinutes()}`)
+    total.totalWallets = BigInt.fromI32(0)
+  }
+  let currentTotal = total.totalWallets
+
+  // ohm 
+  let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
+  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
+  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = ttotal.ohmBalance - total.daoOhmBalance
+
+  //parent entity id
+  total.totalSupplyHourly = `${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}`
+
+  //usd
+  let usdRate = getOHMUSDRate()
+  total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
+  total.dollarBalance = total.ohmBalance.times(usdRate)
+  total.marketCapacity = total.circulatingSupply.times(usdRate)
+
+  total.timestamp = timestamp
+  //total.totalWallets = currentTotal + BigInt.fromI32(1)
+  total.save()
+
+}
+
 
 export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes): void {
 
@@ -134,7 +219,6 @@ export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes): void
   if (!entity) {
     entity = new Wallet(address.toHex())
     entity.birth = timestamp
-    createTotals(timestamp)
   }
 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
@@ -165,4 +249,16 @@ function getNumberDayFromDate(date:Date): i64 {
   let supported=new Date(0);
   supported.setUTCFullYear(date.getUTCFullYear());
   return  Math.floor( Number.parseInt((date.getTime() -  supported.getTime()).toString()) /( oneDay )) as i64;
+}
+
+export function getOHMUSDRate(): BigDecimal {
+    let pair = UniswapV2Pair.bind(Address.fromString(SUSHI_OHMDAI_PAIR))
+
+    let reserves = pair.getReserves()
+    let reserve0 = reserves.value0.toBigDecimal()
+    let reserve1 = reserves.value1.toBigDecimal()
+
+    let ohmRate = reserve1.div(reserve0).div(BIG_DECIMAL_1E9)
+
+    return ohmRate
 }

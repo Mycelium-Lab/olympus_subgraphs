@@ -53,13 +53,50 @@ type Minter @entity {
 
 }
 
-type totalSupply @entity {
+type totalSupplyDaily @entity {
 
   id: ID!
   totalWallets: BigInt!
-  ohmBalance: BigInt!
-  day: BigInt
+  ohmBalance: BigDecimal!
+  dollarBalance: BigDecimal!
+  circulatingSupply: BigDecimal!
+  marketCapacity: BigDecimal!
+  daoOhmBalance: BigDecimal!
+  daoDollarBalance: BigDecimal!
   timestamp: BigInt
+  hours: [totalSupplyHourly!] @derivedFrom(field: "totalSupplyDaily")
+
+
+}
+
+type totalSupplyHourly @entity {
+
+  id: ID!
+  totalWallets: BigInt!
+  ohmBalance: BigDecimal!
+  dollarBalance: BigDecimal!
+  circulatingSupply: BigDecimal!
+  marketCapacity: BigDecimal!
+  daoOhmBalance: BigDecimal!
+  daoDollarBalance: BigDecimal!
+  timestamp: BigInt
+  totalSupplyDaily: totalSupplyDaily!
+  minutes: [totalSupplyMinutely!] @derivedFrom(field: "totalSupplyHourly")
+
+}
+
+type totalSupplyMinutely @entity {
+
+  id: ID!
+  totalWallets: BigInt!
+  ohmBalance: BigDecimal!
+  dollarBalance: BigDecimal!
+  circulatingSupply: BigDecimal!
+  marketCapacity: BigDecimal!
+  daoOhmBalance: BigDecimal!
+  daoDollarBalance: BigDecimal!
+  timestamp: BigInt
+  totalSupplyHourly: totalSupplyHourly!
 
 }
 
