@@ -100,7 +100,7 @@ function rebaseMinutely(event: LogRebase, day_ts: String, minute_ts: String): vo
   entity.epoch = event.params.epoch
   entity.rebase = event.params.rebase
   entity.index = event.params.index
-  entity.logRebaseHourly = `${day_ts}-${event.block.timestamp}`
+  entity.logRebaseHourly = `${day_ts}-${minute_ts}`
   entity.save()
 
 }
