@@ -28,7 +28,7 @@ export function handleMint(call: MintCall): void {
   entity.timestamp = call.block.timestamp
   entity.save()
 
-  createTotalsDaily(call.block.timestamp)
+  createTotalsDaily(call.block.timestamp, call.block.number)
 
   createWallet(call.inputs.account_, call.block.timestamp, call.transaction.hash)
 
@@ -44,7 +44,7 @@ export function handleBurn(call: BurnCall): void {
   entity.value = call.inputs.amount
   entity.save()
 
-  createTotalsDaily(call.block.timestamp)
+  createTotalsDaily(call.block.timestamp, call.block.number)
 
 }
 
