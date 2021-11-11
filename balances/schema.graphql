@@ -100,6 +100,30 @@ type totalSupplyMinutely @entity {
 
 }
 
+type OhmiesDaily @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+
+}
+
+type OhmiesHourly @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+
+}
+
+type OhmiesMinutely @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+
+}
+
 type MinuteBalance @entity {
   id: ID!
   ohmBalance: BigInt!

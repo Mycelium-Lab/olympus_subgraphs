@@ -1,14 +1,11 @@
 import { Address, BigDecimal, BigInt, log, Bytes } from '@graphprotocol/graph-ts'
-import { Balance, Wallet, totalSupplyDaily, totalSupplyHourly, totalSupplyMinutely ,DailyBalance, HourBalance, MinuteBalance } from '../../generated/schema'
+import { Balance, Wallet, totalSupplyDaily, totalSupplyHourly, totalSupplyMinutely, DailyBalance, HourBalance, MinuteBalance } from '../../generated/schema'
 import {SOHM_ERC20_CONTRACT, OHM_ERC20_CONTRACT, SUSHI_OHMDAI_PAIR} from './Constants'
 import {
   wOHM
 } from "../../generated/wOHM/wOHM"
 
-import { UniswapV2Pair } from '../../generated/wOHM/UniswapV2Pair';
-
-let BIG_DECIMAL_1E9 = BigDecimal.fromString('1e9')
-let BIG_DECIMAL_1E12 = BigDecimal.fromString('1e12')
+import { toDecimal, getNumberDayFromDate, getOHMUSDRate, minuteFromTimestamp, hourFromTimestamp, dayFromTimestamp} from './utils'
 
 
 export function createBalance(address: Bytes, timestamp: BigInt, id: Bytes): Balance {
@@ -47,15 +44,15 @@ export function createDailyBalance(address: Bytes, timestamp: BigInt): DailyBala
   }
 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
-  //let sohmContract = wOHM.bind(Address.fromString(SOHM_ERC20_CONTRACT))
 
   entity.wallet = address.toHex()
   entity.ohmBalance = ohmContract.balanceOf(Address.fromString(address.toHex()))
-  //entity.sohmBalance = sohmContract.balanceOf(Address.fromString(address.toHex()))
-  entity.timestamp = timestamp
+  entity.timestamp = dayFromTimestamp(timestamp)
   entity.address = address
   entity.day = BigInt.fromString(getNumberDayFromDate(date).toString())
   entity.save()
+
+
   let hourBalance = createHourBalance(address, timestamp)
   return entity as DailyBalance
 
@@ -78,10 +75,11 @@ export function createHourBalance(address: Bytes, timestamp: BigInt): HourBalanc
 
   entity.dailyBalance = `${address.toHex()}-${date.getUTCFullYear()}-${getNumberDayFromDate(date).toString()}`
   entity.ohmBalance = ohmContract.balanceOf(Address.fromString(address.toHex()))
-  entity.timestamp = timestamp
+  entity.timestamp = hourFromTimestamp(timestamp)
   entity.address = address
   entity.hour = BigInt.fromI32(date.getUTCHours())
   entity.save()
+
   let minuteBalance = createMinuteBalance(address, timestamp)
 
   return entity as HourBalance
@@ -104,7 +102,7 @@ export function createMinuteBalance(address: Bytes, timestamp: BigInt): MinuteBa
 
   entity.hourBalance = `${address.toHex()}-${date.getUTCFullYear()}-${getNumberDayFromDate(date).toString()}-${date.getUTCHours().toString()}`
   entity.ohmBalance = ohmContract.balanceOf(Address.fromString(address.toHex()))
-  entity.timestamp = timestamp
+  entity.timestamp = minuteFromTimestamp(timestamp)
   entity.address = address
   entity.minute = BigInt.fromI32(date.getUTCMinutes())
   entity.save()
@@ -113,7 +111,7 @@ export function createMinuteBalance(address: Bytes, timestamp: BigInt): MinuteBa
 
 }
 
-export function createTotalsDaily(timestamp: BigInt, blockNumber: BigInt): void {
+export function createTotalsDaily(timestamp: BigInt, blockNumber: BigInt): totalSupplyDaily {
 
   let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
   number*=1000;
@@ -142,15 +140,16 @@ export function createTotalsDaily(timestamp: BigInt, blockNumber: BigInt): void 
 
   }
 
-  total.timestamp = timestamp
-  //total.totalWallets = currentTotal + BigInt.fromI32(1)
+  total.timestamp = dayFromTimestamp(timestamp)
   total.save()
 
   createTotalsHourly(timestamp, blockNumber)
 
+  return total as totalSupplyDaily
+
 }
 
-export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): void {
+export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): totalSupplyHourly {
 
   let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
   number*=1000;
@@ -169,6 +168,7 @@ export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): void
   total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
   total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
 
+  //parent entity id
   total.totalSupplyDaily = `${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`
 
   //usd
@@ -181,15 +181,16 @@ export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): void
 
   }
 
-  total.timestamp = timestamp
-  //total.totalWallets = currentTotal + BigInt.fromI32(1)
+  total.timestamp = hourFromTimestamp(timestamp)
   total.save()
 
   createTotalsMinutely(timestamp, blockNumber)
 
+  return total as totalSupplyHourly
+
 }
 
-export function createTotalsMinutely(timestamp: BigInt, blockNumber: BigInt): void {
+export function createTotalsMinutely(timestamp: BigInt, blockNumber: BigInt): totalSupplyMinutely {
 
   let number:i64 =Number.parseInt(timestamp.toString(),10) as i64;
   number*=1000;
@@ -221,9 +222,10 @@ export function createTotalsMinutely(timestamp: BigInt, blockNumber: BigInt): vo
 
   }
 
-  total.timestamp = timestamp
-  //total.totalWallets = currentTotal + BigInt.fromI32(1)
+  total.timestamp = minuteFromTimestamp(timestamp)
   total.save()
+
+  return total as totalSupplyMinutely
 
 }
 
@@ -249,36 +251,4 @@ export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes): void
 
 }
 
-function toDecimal(
-  value: BigInt,
-  decimals: number = DEFAULT_DECIMALS,
-): BigDecimal {
-  let precision = BigInt.fromI32(10)
-    .pow(<u8>decimals)
-    .toBigDecimal();
 
-  return value.divDecimal(precision);
-}
-
-function getNumberDayFromDate(date:Date): i64 {
-
-  const oneDay:number = 1000 * 60 * 60 * 24;
-  let supported=new Date(0);
-  supported.setUTCFullYear(date.getUTCFullYear());
-  return  Math.floor( Number.parseInt((date.getTime() -  supported.getTime()).toString()) /( oneDay )) as i64;
-
-}
-
-export function getOHMUSDRate(): BigDecimal {
-
-  let pair = UniswapV2Pair.bind(Address.fromString(SUSHI_OHMDAI_PAIR))
-
-  let reserves = pair.getReserves()
-  let reserve0 = reserves.value0.toBigDecimal()
-  let reserve1 = reserves.value1.toBigDecimal()
-
-  let ohmRate = reserve1.div(reserve0).div(BIG_DECIMAL_1E9)
-
-  return ohmRate
-
-}

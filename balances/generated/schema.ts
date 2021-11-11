@@ -969,6 +969,168 @@ export class totalSupplyMinutely extends Entity {
   }
 }
 
+export class OhmiesDaily extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save OhmiesDaily entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save OhmiesDaily entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("OhmiesDaily", id.toString(), this);
+    }
+  }
+
+  static load(id: string): OhmiesDaily | null {
+    return changetype<OhmiesDaily | null>(store.get("OhmiesDaily", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+}
+
+export class OhmiesHourly extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save OhmiesHourly entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save OhmiesHourly entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("OhmiesHourly", id.toString(), this);
+    }
+  }
+
+  static load(id: string): OhmiesHourly | null {
+    return changetype<OhmiesHourly | null>(store.get("OhmiesHourly", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+}
+
+export class OhmiesMinutely extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save OhmiesMinutely entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save OhmiesMinutely entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("OhmiesMinutely", id.toString(), this);
+    }
+  }
+
+  static load(id: string): OhmiesMinutely | null {
+    return changetype<OhmiesMinutely | null>(store.get("OhmiesMinutely", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+}
+
 export class MinuteBalance extends Entity {
   constructor(id: string) {
     super();
