@@ -1021,6 +1021,23 @@ export class OhmiesDaily extends Entity {
   set holders(value: BigInt) {
     this.set("holders", Value.fromBigInt(value));
   }
+
+  get hours(): Array<string> | null {
+    let value = this.get("hours");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set hours(value: Array<string> | null) {
+    if (!value) {
+      this.unset("hours");
+    } else {
+      this.set("hours", Value.fromStringArray(<Array<string>>value));
+    }
+  }
 }
 
 export class OhmiesHourly extends Entity {
@@ -1030,6 +1047,7 @@ export class OhmiesHourly extends Entity {
 
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("holders", Value.fromBigInt(BigInt.zero()));
+    this.set("ohmiesDaily", Value.fromString(""));
   }
 
   save(): void {
@@ -1075,6 +1093,32 @@ export class OhmiesHourly extends Entity {
   set holders(value: BigInt) {
     this.set("holders", Value.fromBigInt(value));
   }
+
+  get ohmiesDaily(): string {
+    let value = this.get("ohmiesDaily");
+    return value!.toString();
+  }
+
+  set ohmiesDaily(value: string) {
+    this.set("ohmiesDaily", Value.fromString(value));
+  }
+
+  get minutes(): Array<string> | null {
+    let value = this.get("minutes");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set minutes(value: Array<string> | null) {
+    if (!value) {
+      this.unset("minutes");
+    } else {
+      this.set("minutes", Value.fromStringArray(<Array<string>>value));
+    }
+  }
 }
 
 export class OhmiesMinutely extends Entity {
@@ -1084,6 +1128,7 @@ export class OhmiesMinutely extends Entity {
 
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("holders", Value.fromBigInt(BigInt.zero()));
+    this.set("ohmiesHourly", Value.fromString(""));
   }
 
   save(): void {
@@ -1128,6 +1173,15 @@ export class OhmiesMinutely extends Entity {
 
   set holders(value: BigInt) {
     this.set("holders", Value.fromBigInt(value));
+  }
+
+  get ohmiesHourly(): string {
+    let value = this.get("ohmiesHourly");
+    return value!.toString();
+  }
+
+  set ohmiesHourly(value: string) {
+    this.set("ohmiesHourly", Value.fromString(value));
   }
 }
 

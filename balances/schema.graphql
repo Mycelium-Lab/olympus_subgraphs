@@ -105,6 +105,7 @@ type OhmiesDaily @entity {
   id: ID!
   timestamp: BigInt!
   holders: BigInt!
+  hours: [OhmiesHourly!] @derivedFrom(field: "ohmiesDaily")
 
 }
 
@@ -113,6 +114,8 @@ type OhmiesHourly @entity {
   id: ID!
   timestamp: BigInt!
   holders: BigInt!
+  ohmiesDaily: OhmiesDaily!
+  minutes: [OhmiesMinutely!] @derivedFrom(field: "ohmiesHourly")
 
 }
 
@@ -121,6 +124,7 @@ type OhmiesMinutely @entity {
   id: ID!
   timestamp: BigInt!
   holders: BigInt!
+  ohmiesHourly: OhmiesHourly!
 
 }
 

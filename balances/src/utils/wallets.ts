@@ -6,6 +6,7 @@ import {
 } from "../../generated/wOHM/wOHM"
 
 import { toDecimal, getNumberDayFromDate, getOHMUSDRate, minuteFromTimestamp, hourFromTimestamp, dayFromTimestamp} from './utils'
+import { updateDailyOhmies } from './holders'
 
 
 export function createBalance(address: Bytes, timestamp: BigInt, id: Bytes): Balance {
@@ -118,10 +119,12 @@ export function createTotalsDaily(timestamp: BigInt, blockNumber: BigInt): total
   const date: Date = new Date( number );
 
   let total = totalSupplyDaily.load(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
+
   if (!total) {
     total = new totalSupplyDaily(`${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`)
     total.totalWallets = BigInt.fromI32(0)
   }
+
   let currentTotal = total.totalWallets
 
   // ohm 
@@ -237,6 +240,7 @@ export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes): void
   if (!entity) {
     entity = new Wallet(address.toHex())
     entity.birth = timestamp
+    updateDailyOhmies(timestamp)
   }
 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
@@ -250,5 +254,6 @@ export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes): void
   let DailyBalance = createDailyBalance(address, timestamp)
 
 }
+
 
 
