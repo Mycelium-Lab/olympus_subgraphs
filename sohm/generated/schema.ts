@@ -1116,3 +1116,219 @@ export class DailyBalance extends Entity {
     }
   }
 }
+
+export class SohmiesDaily extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save SohmiesDaily entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save SohmiesDaily entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("SohmiesDaily", id.toString(), this);
+    }
+  }
+
+  static load(id: string): SohmiesDaily | null {
+    return changetype<SohmiesDaily | null>(store.get("SohmiesDaily", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+
+  get hours(): Array<string> | null {
+    let value = this.get("hours");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set hours(value: Array<string> | null) {
+    if (!value) {
+      this.unset("hours");
+    } else {
+      this.set("hours", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+}
+
+export class SohmiesHourly extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+    this.set("sohmiesDaily", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save SohmiesHourly entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save SohmiesHourly entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("SohmiesHourly", id.toString(), this);
+    }
+  }
+
+  static load(id: string): SohmiesHourly | null {
+    return changetype<SohmiesHourly | null>(store.get("SohmiesHourly", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+
+  get sohmiesDaily(): string {
+    let value = this.get("sohmiesDaily");
+    return value!.toString();
+  }
+
+  set sohmiesDaily(value: string) {
+    this.set("sohmiesDaily", Value.fromString(value));
+  }
+
+  get minutes(): Array<string> | null {
+    let value = this.get("minutes");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set minutes(value: Array<string> | null) {
+    if (!value) {
+      this.unset("minutes");
+    } else {
+      this.set("minutes", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+}
+
+export class SohmiesMinutely extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("holders", Value.fromBigInt(BigInt.zero()));
+    this.set("sohmiesHourly", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save SohmiesMinutely entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save SohmiesMinutely entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("SohmiesMinutely", id.toString(), this);
+    }
+  }
+
+  static load(id: string): SohmiesMinutely | null {
+    return changetype<SohmiesMinutely | null>(store.get("SohmiesMinutely", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value!.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+
+  get sohmiesHourly(): string {
+    let value = this.get("sohmiesHourly");
+    return value!.toString();
+  }
+
+  set sohmiesHourly(value: string) {
+    this.set("sohmiesHourly", Value.fromString(value));
+  }
+}

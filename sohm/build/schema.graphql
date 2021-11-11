@@ -91,3 +91,31 @@ type DailyBalance @entity {
   address: Bytes
   day: BigInt
 }
+
+type SohmiesDaily @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  hours: [SohmiesHourly!] @derivedFrom(field: "sohmiesDaily")
+
+}
+
+type SohmiesHourly @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  sohmiesDaily: SohmiesDaily!
+  minutes: [SohmiesMinutely!] @derivedFrom(field: "sohmiesHourly")
+
+}
+
+type SohmiesMinutely @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  sohmiesHourly: SohmiesHourly!
+
+}

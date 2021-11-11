@@ -8,6 +8,8 @@ import {
   sOHM2
 } from "../../generated/sOHM2/sOHM2"
 
+import { updateDailySohmies } from './holders'
+
 
 export function createDailyBalance(address: Bytes, timestamp: BigInt, blockNumber: BigInt): DailyBalance {
 
@@ -150,6 +152,7 @@ export function createWallet(address: Bytes, timestamp: BigInt, id: Bytes, block
     entity = new Wallet(address.toHex())
     entity.birth = timestamp
     createTotals(timestamp)
+    updateDailySohmies(timestamp)
   }
 
   if(blockNumber.lt(BigInt.fromString(SOHM_ERC20_CONTRACTV2_BLOCK))){
