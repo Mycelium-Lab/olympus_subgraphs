@@ -19,53 +19,53 @@ dataSources:
         - OlympusStakingV1
       abis:
         - name: OlympusStakingV1
-          file: OlympusStakingV1\abis\OlympusStakingV1.json
+          file: OlympusStakingV1/abis/OlympusStakingV1.json
         - name: OlympusStakingV2
-          file: OlympusStakingV1\abis\OlympusStakingV2.json
+          file: OlympusStakingV1/abis/OlympusStakingV2.json
         - name: sOlympusERC20
-          file: OlympusStakingV1\abis\sOlympusERC20.json
+          file: OlympusStakingV1/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OlympusStakingV1\abis\sOlympusERC20V2.json
+          file: OlympusStakingV1/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OlympusStakingV1\abis\OlympusERC20.json
+          file: OlympusStakingV1/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OlympusStakingV1\abis\UniswapV2Pair.json
+          file: OlympusStakingV1/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OlympusStakingV1\abis\DAIBondV1.json
+          file: OlympusStakingV1/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OlympusStakingV1\abis\DAIBondV2.json
+          file: OlympusStakingV1/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OlympusStakingV1\abis\DAIBondV3.json
+          file: OlympusStakingV1/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OlympusStakingV1\abis\OHMDAIBondV1.json
+          file: OlympusStakingV1/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OlympusStakingV1\abis\OHMDAIBondV2.json
+          file: OlympusStakingV1/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OlympusStakingV1\abis\OHMDAIBondV3.json
+          file: OlympusStakingV1/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OlympusStakingV1\abis\OHMDAIBondV4.json
+          file: OlympusStakingV1/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OlympusStakingV1\abis\OHMFRAXBondV1.json
+          file: OlympusStakingV1/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OlympusStakingV1\abis\OHMFRAXBondV2.json
+          file: OlympusStakingV1/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OlympusStakingV1\abis\FRAXBondV1.json
+          file: OlympusStakingV1/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OlympusStakingV1\abis\ETHBondV1.json
+          file: OlympusStakingV1/abis/ETHBondV1.json
         - name: CirculatingSupply
-          file: OlympusStakingV1\abis\CirculatingSupply.json
+          file: OlympusStakingV1/abis/CirculatingSupply.json
         - name: BondingCalculator
-          file: OlympusStakingV1\abis\BondingCalculator.json
+          file: OlympusStakingV1/abis/BondingCalculator.json
         - name: ERC20
-          file: OlympusStakingV1\abis\ERC20.json
+          file: OlympusStakingV1/abis/ERC20.json
         - name: MasterChef
-          file: OlympusStakingV1\abis\MasterChef.json
+          file: OlympusStakingV1/abis/MasterChef.json
       callHandlers:
         - function: stakeOHM(uint256)
           handler: handleStake
         - function: unstakeOHM(uint256)
           handler: handleUnstake
-      file: OlympusStakingV1\OlympusStakingV1.wasm
+      file: OlympusStakingV1/OlympusStakingV1.wasm
   - kind: ethereum/contract
     name: OlympusStakingV2
     network: mainnet
@@ -81,53 +81,53 @@ dataSources:
         - OlympusStakingV2
       abis:
         - name: OlympusStakingV2
-          file: OlympusStakingV2\abis\OlympusStakingV2.json
+          file: OlympusStakingV2/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OlympusStakingV2\abis\OlympusStakingV1.json
+          file: OlympusStakingV2/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OlympusStakingV2\abis\sOlympusERC20.json
+          file: OlympusStakingV2/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OlympusStakingV2\abis\sOlympusERC20V2.json
+          file: OlympusStakingV2/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OlympusStakingV2\abis\OlympusERC20.json
+          file: OlympusStakingV2/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OlympusStakingV2\abis\UniswapV2Pair.json
+          file: OlympusStakingV2/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OlympusStakingV2\abis\DAIBondV1.json
+          file: OlympusStakingV2/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OlympusStakingV2\abis\DAIBondV2.json
+          file: OlympusStakingV2/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OlympusStakingV2\abis\DAIBondV3.json
+          file: OlympusStakingV2/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OlympusStakingV2\abis\OHMDAIBondV1.json
+          file: OlympusStakingV2/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OlympusStakingV2\abis\OHMDAIBondV2.json
+          file: OlympusStakingV2/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OlympusStakingV2\abis\OHMDAIBondV3.json
+          file: OlympusStakingV2/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OlympusStakingV2\abis\OHMDAIBondV4.json
+          file: OlympusStakingV2/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OlympusStakingV2\abis\OHMFRAXBondV1.json
+          file: OlympusStakingV2/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OlympusStakingV2\abis\OHMFRAXBondV2.json
+          file: OlympusStakingV2/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OlympusStakingV2\abis\FRAXBondV1.json
+          file: OlympusStakingV2/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OlympusStakingV2\abis\ETHBondV1.json
+          file: OlympusStakingV2/abis/ETHBondV1.json
         - name: CirculatingSupply
-          file: OlympusStakingV2\abis\CirculatingSupply.json
+          file: OlympusStakingV2/abis/CirculatingSupply.json
         - name: BondingCalculator
-          file: OlympusStakingV2\abis\BondingCalculator.json
+          file: OlympusStakingV2/abis/BondingCalculator.json
         - name: ERC20
-          file: OlympusStakingV2\abis\ERC20.json
+          file: OlympusStakingV2/abis/ERC20.json
         - name: MasterChef
-          file: OlympusStakingV2\abis\MasterChef.json
+          file: OlympusStakingV2/abis/MasterChef.json
       callHandlers:
         - function: stake(uint256,address)
           handler: handleStake
         - function: unstake(uint256,bool)
           handler: handleUnstake
-      file: OlympusStakingV2\OlympusStakingV2.wasm
+      file: OlympusStakingV2/OlympusStakingV2.wasm
   - kind: ethereum/contract
     name: OlympusStakingV2Helper
     network: mainnet
@@ -143,45 +143,45 @@ dataSources:
         - OlympusStakingV2Helper
       abis:
         - name: OlympusStakingV2
-          file: OlympusStakingV2Helper\abis\OlympusStakingV2.json
+          file: OlympusStakingV2Helper/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OlympusStakingV2Helper\abis\OlympusStakingV1.json
+          file: OlympusStakingV2Helper/abis/OlympusStakingV1.json
         - name: OlympusStakingV2Helper
-          file: OlympusStakingV2Helper\abis\OlympusStakingV2Helper.json
+          file: OlympusStakingV2Helper/abis/OlympusStakingV2Helper.json
         - name: sOlympusERC20
-          file: OlympusStakingV2Helper\abis\sOlympusERC20.json
+          file: OlympusStakingV2Helper/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OlympusStakingV2Helper\abis\sOlympusERC20V2.json
+          file: OlympusStakingV2Helper/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OlympusStakingV2Helper\abis\OlympusERC20.json
+          file: OlympusStakingV2Helper/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OlympusStakingV2Helper\abis\UniswapV2Pair.json
+          file: OlympusStakingV2Helper/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OlympusStakingV2Helper\abis\DAIBondV1.json
+          file: OlympusStakingV2Helper/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OlympusStakingV2Helper\abis\DAIBondV2.json
+          file: OlympusStakingV2Helper/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OlympusStakingV2Helper\abis\DAIBondV3.json
+          file: OlympusStakingV2Helper/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OlympusStakingV2Helper\abis\OHMDAIBondV1.json
+          file: OlympusStakingV2Helper/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OlympusStakingV2Helper\abis\OHMDAIBondV2.json
+          file: OlympusStakingV2Helper/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OlympusStakingV2Helper\abis\OHMDAIBondV3.json
+          file: OlympusStakingV2Helper/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OlympusStakingV2Helper\abis\OHMDAIBondV4.json
+          file: OlympusStakingV2Helper/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OlympusStakingV2Helper\abis\OHMFRAXBondV1.json
+          file: OlympusStakingV2Helper/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OlympusStakingV2Helper\abis\OHMFRAXBondV2.json
+          file: OlympusStakingV2Helper/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OlympusStakingV2Helper\abis\FRAXBondV1.json
+          file: OlympusStakingV2Helper/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OlympusStakingV2Helper\abis\ETHBondV1.json
+          file: OlympusStakingV2Helper/abis/ETHBondV1.json
       callHandlers:
         - function: stake(uint256)
           handler: handleStake
-      file: OlympusStakingV2Helper\OlympusStakingV2Helper.wasm
+      file: OlympusStakingV2Helper/OlympusStakingV2Helper.wasm
   - kind: ethereum/contract
     name: DAIBondV3
     network: mainnet
@@ -197,39 +197,39 @@ dataSources:
         - DAIBondV3
       abis:
         - name: OlympusStakingV2
-          file: DAIBondV3\abis\OlympusStakingV2.json
+          file: DAIBondV3/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: DAIBondV3\abis\OlympusStakingV1.json
+          file: DAIBondV3/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: DAIBondV3\abis\sOlympusERC20.json
+          file: DAIBondV3/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: DAIBondV3\abis\sOlympusERC20V2.json
+          file: DAIBondV3/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: DAIBondV3\abis\OlympusERC20.json
+          file: DAIBondV3/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: DAIBondV3\abis\UniswapV2Pair.json
+          file: DAIBondV3/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: DAIBondV3\abis\DAIBondV1.json
+          file: DAIBondV3/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: DAIBondV3\abis\DAIBondV2.json
+          file: DAIBondV3/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: DAIBondV3\abis\DAIBondV3.json
+          file: DAIBondV3/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: DAIBondV3\abis\OHMDAIBondV1.json
+          file: DAIBondV3/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: DAIBondV3\abis\OHMDAIBondV2.json
+          file: DAIBondV3/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: DAIBondV3\abis\OHMDAIBondV3.json
+          file: DAIBondV3/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: DAIBondV3\abis\OHMDAIBondV4.json
+          file: DAIBondV3/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: DAIBondV3\abis\OHMFRAXBondV1.json
+          file: DAIBondV3/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: DAIBondV3\abis\OHMFRAXBondV2.json
+          file: DAIBondV3/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: DAIBondV3\abis\FRAXBondV1.json
+          file: DAIBondV3/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: DAIBondV3\abis\ETHBondV1.json
+          file: DAIBondV3/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -239,7 +239,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: DAIBondV3\DAIBondV3.wasm
+      file: DAIBondV3/DAIBondV3.wasm
   - kind: ethereum/contract
     name: OHMDAIBondV3
     network: mainnet
@@ -255,39 +255,39 @@ dataSources:
         - OHMDAIBondV3
       abis:
         - name: OlympusStakingV2
-          file: OHMDAIBondV3\abis\OlympusStakingV2.json
+          file: OHMDAIBondV3/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OHMDAIBondV3\abis\OlympusStakingV1.json
+          file: OHMDAIBondV3/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OHMDAIBondV3\abis\sOlympusERC20.json
+          file: OHMDAIBondV3/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OHMDAIBondV3\abis\sOlympusERC20V2.json
+          file: OHMDAIBondV3/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OHMDAIBondV3\abis\OlympusERC20.json
+          file: OHMDAIBondV3/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OHMDAIBondV3\abis\UniswapV2Pair.json
+          file: OHMDAIBondV3/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OHMDAIBondV3\abis\DAIBondV1.json
+          file: OHMDAIBondV3/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OHMDAIBondV3\abis\DAIBondV2.json
+          file: OHMDAIBondV3/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OHMDAIBondV3\abis\DAIBondV3.json
+          file: OHMDAIBondV3/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OHMDAIBondV3\abis\OHMDAIBondV1.json
+          file: OHMDAIBondV3/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OHMDAIBondV3\abis\OHMDAIBondV2.json
+          file: OHMDAIBondV3/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OHMDAIBondV3\abis\OHMDAIBondV3.json
+          file: OHMDAIBondV3/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OHMDAIBondV3\abis\OHMDAIBondV4.json
+          file: OHMDAIBondV3/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OHMDAIBondV3\abis\OHMFRAXBondV1.json
+          file: OHMDAIBondV3/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OHMDAIBondV3\abis\OHMFRAXBondV2.json
+          file: OHMDAIBondV3/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OHMDAIBondV3\abis\FRAXBondV1.json
+          file: OHMDAIBondV3/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OHMDAIBondV3\abis\ETHBondV1.json
+          file: OHMDAIBondV3/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -295,7 +295,7 @@ dataSources:
           handler: handleBondRedeem
         - event: BondPriceChanged(indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondPriceChange
-      file: OHMDAIBondV3\OHMDAIBondV3.wasm
+      file: OHMDAIBondV3/OHMDAIBondV3.wasm
   - kind: ethereum/contract
     name: OHMDAIBondV4
     network: mainnet
@@ -311,39 +311,39 @@ dataSources:
         - OHMDAIBondV4
       abis:
         - name: OlympusStakingV2
-          file: OHMDAIBondV4\abis\OlympusStakingV2.json
+          file: OHMDAIBondV4/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OHMDAIBondV4\abis\OlympusStakingV1.json
+          file: OHMDAIBondV4/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OHMDAIBondV4\abis\sOlympusERC20.json
+          file: OHMDAIBondV4/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OHMDAIBondV4\abis\sOlympusERC20V2.json
+          file: OHMDAIBondV4/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OHMDAIBondV4\abis\OlympusERC20.json
+          file: OHMDAIBondV4/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OHMDAIBondV4\abis\UniswapV2Pair.json
+          file: OHMDAIBondV4/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OHMDAIBondV4\abis\DAIBondV1.json
+          file: OHMDAIBondV4/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OHMDAIBondV4\abis\DAIBondV2.json
+          file: OHMDAIBondV4/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OHMDAIBondV4\abis\DAIBondV3.json
+          file: OHMDAIBondV4/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OHMDAIBondV4\abis\OHMDAIBondV1.json
+          file: OHMDAIBondV4/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OHMDAIBondV4\abis\OHMDAIBondV2.json
+          file: OHMDAIBondV4/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OHMDAIBondV4\abis\OHMDAIBondV3.json
+          file: OHMDAIBondV4/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OHMDAIBondV4\abis\OHMDAIBondV4.json
+          file: OHMDAIBondV4/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OHMDAIBondV4\abis\OHMFRAXBondV1.json
+          file: OHMDAIBondV4/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OHMDAIBondV4\abis\OHMFRAXBondV2.json
+          file: OHMDAIBondV4/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OHMDAIBondV4\abis\FRAXBondV1.json
+          file: OHMDAIBondV4/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OHMDAIBondV4\abis\ETHBondV1.json
+          file: OHMDAIBondV4/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -353,7 +353,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: OHMDAIBondV4\OHMDAIBondV4.wasm
+      file: OHMDAIBondV4/OHMDAIBondV4.wasm
   - kind: ethereum/contract
     name: OHMFRAXBondV1
     network: mainnet
@@ -369,39 +369,39 @@ dataSources:
         - OHMFRAXBondV1
       abis:
         - name: OlympusStakingV2
-          file: OHMFRAXBondV1\abis\OlympusStakingV2.json
+          file: OHMFRAXBondV1/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OHMFRAXBondV1\abis\OlympusStakingV1.json
+          file: OHMFRAXBondV1/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OHMFRAXBondV1\abis\sOlympusERC20.json
+          file: OHMFRAXBondV1/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OHMFRAXBondV1\abis\sOlympusERC20V2.json
+          file: OHMFRAXBondV1/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OHMFRAXBondV1\abis\OlympusERC20.json
+          file: OHMFRAXBondV1/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OHMFRAXBondV1\abis\UniswapV2Pair.json
+          file: OHMFRAXBondV1/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OHMFRAXBondV1\abis\DAIBondV1.json
+          file: OHMFRAXBondV1/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OHMFRAXBondV1\abis\DAIBondV2.json
+          file: OHMFRAXBondV1/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OHMFRAXBondV1\abis\DAIBondV3.json
+          file: OHMFRAXBondV1/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OHMFRAXBondV1\abis\OHMDAIBondV1.json
+          file: OHMFRAXBondV1/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OHMFRAXBondV1\abis\OHMDAIBondV2.json
+          file: OHMFRAXBondV1/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OHMFRAXBondV1\abis\OHMDAIBondV3.json
+          file: OHMFRAXBondV1/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OHMFRAXBondV1\abis\OHMDAIBondV4.json
+          file: OHMFRAXBondV1/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OHMFRAXBondV1\abis\OHMFRAXBondV1.json
+          file: OHMFRAXBondV1/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OHMFRAXBondV1\abis\OHMFRAXBondV2.json
+          file: OHMFRAXBondV1/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OHMFRAXBondV1\abis\FRAXBondV1.json
+          file: OHMFRAXBondV1/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OHMFRAXBondV1\abis\ETHBondV1.json
+          file: OHMFRAXBondV1/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -409,7 +409,7 @@ dataSources:
           handler: handleBondRedeem
         - event: BondPriceChanged(indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondPriceChange
-      file: OHMFRAXBondV1\OHMFRAXBondV1.wasm
+      file: OHMFRAXBondV1/OHMFRAXBondV1.wasm
   - kind: ethereum/contract
     name: OHMFRAXBondV2
     network: mainnet
@@ -425,39 +425,39 @@ dataSources:
         - OHMFRAXBondV2
       abis:
         - name: OlympusStakingV2
-          file: OHMFRAXBondV2\abis\OlympusStakingV2.json
+          file: OHMFRAXBondV2/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OHMFRAXBondV2\abis\OlympusStakingV1.json
+          file: OHMFRAXBondV2/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OHMFRAXBondV2\abis\sOlympusERC20.json
+          file: OHMFRAXBondV2/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OHMFRAXBondV2\abis\sOlympusERC20V2.json
+          file: OHMFRAXBondV2/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OHMFRAXBondV2\abis\OlympusERC20.json
+          file: OHMFRAXBondV2/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OHMFRAXBondV2\abis\UniswapV2Pair.json
+          file: OHMFRAXBondV2/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OHMFRAXBondV2\abis\DAIBondV1.json
+          file: OHMFRAXBondV2/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OHMFRAXBondV2\abis\DAIBondV2.json
+          file: OHMFRAXBondV2/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OHMFRAXBondV2\abis\DAIBondV3.json
+          file: OHMFRAXBondV2/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OHMFRAXBondV2\abis\OHMDAIBondV1.json
+          file: OHMFRAXBondV2/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OHMFRAXBondV2\abis\OHMDAIBondV2.json
+          file: OHMFRAXBondV2/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OHMFRAXBondV2\abis\OHMDAIBondV3.json
+          file: OHMFRAXBondV2/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OHMFRAXBondV2\abis\OHMDAIBondV4.json
+          file: OHMFRAXBondV2/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OHMFRAXBondV2\abis\OHMFRAXBondV1.json
+          file: OHMFRAXBondV2/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OHMFRAXBondV2\abis\OHMFRAXBondV2.json
+          file: OHMFRAXBondV2/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OHMFRAXBondV2\abis\FRAXBondV1.json
+          file: OHMFRAXBondV2/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OHMFRAXBondV2\abis\ETHBondV1.json
+          file: OHMFRAXBondV2/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -467,7 +467,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: OHMFRAXBondV2\OHMFRAXBondV2.wasm
+      file: OHMFRAXBondV2/OHMFRAXBondV2.wasm
   - kind: ethereum/contract
     name: FRAXBondV1
     network: mainnet
@@ -483,39 +483,39 @@ dataSources:
         - FRAXBondV1
       abis:
         - name: OlympusStakingV2
-          file: FRAXBondV1\abis\OlympusStakingV2.json
+          file: FRAXBondV1/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: FRAXBondV1\abis\OlympusStakingV1.json
+          file: FRAXBondV1/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: FRAXBondV1\abis\sOlympusERC20.json
+          file: FRAXBondV1/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: FRAXBondV1\abis\sOlympusERC20V2.json
+          file: FRAXBondV1/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: FRAXBondV1\abis\OlympusERC20.json
+          file: FRAXBondV1/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: FRAXBondV1\abis\UniswapV2Pair.json
+          file: FRAXBondV1/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: FRAXBondV1\abis\DAIBondV1.json
+          file: FRAXBondV1/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: FRAXBondV1\abis\DAIBondV2.json
+          file: FRAXBondV1/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: FRAXBondV1\abis\DAIBondV3.json
+          file: FRAXBondV1/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: FRAXBondV1\abis\OHMDAIBondV1.json
+          file: FRAXBondV1/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: FRAXBondV1\abis\OHMDAIBondV2.json
+          file: FRAXBondV1/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: FRAXBondV1\abis\OHMDAIBondV3.json
+          file: FRAXBondV1/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: FRAXBondV1\abis\OHMDAIBondV4.json
+          file: FRAXBondV1/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: FRAXBondV1\abis\OHMFRAXBondV1.json
+          file: FRAXBondV1/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: FRAXBondV1\abis\OHMFRAXBondV2.json
+          file: FRAXBondV1/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: FRAXBondV1\abis\FRAXBondV1.json
+          file: FRAXBondV1/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: FRAXBondV1\abis\ETHBondV1.json
+          file: FRAXBondV1/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -525,7 +525,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: FRAXBondV1\FRAXBondV1.wasm
+      file: FRAXBondV1/FRAXBondV1.wasm
   - kind: ethereum/contract
     name: ETHBondV1
     network: mainnet
@@ -541,39 +541,39 @@ dataSources:
         - ETHBondV1
       abis:
         - name: OlympusStakingV2
-          file: ETHBondV1\abis\OlympusStakingV2.json
+          file: ETHBondV1/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: ETHBondV1\abis\OlympusStakingV1.json
+          file: ETHBondV1/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: ETHBondV1\abis\sOlympusERC20.json
+          file: ETHBondV1/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: ETHBondV1\abis\sOlympusERC20V2.json
+          file: ETHBondV1/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: ETHBondV1\abis\OlympusERC20.json
+          file: ETHBondV1/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: ETHBondV1\abis\UniswapV2Pair.json
+          file: ETHBondV1/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: ETHBondV1\abis\DAIBondV1.json
+          file: ETHBondV1/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: ETHBondV1\abis\DAIBondV2.json
+          file: ETHBondV1/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: ETHBondV1\abis\DAIBondV3.json
+          file: ETHBondV1/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: ETHBondV1\abis\OHMDAIBondV1.json
+          file: ETHBondV1/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: ETHBondV1\abis\OHMDAIBondV2.json
+          file: ETHBondV1/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: ETHBondV1\abis\OHMDAIBondV3.json
+          file: ETHBondV1/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: ETHBondV1\abis\OHMDAIBondV4.json
+          file: ETHBondV1/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: ETHBondV1\abis\OHMFRAXBondV1.json
+          file: ETHBondV1/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: ETHBondV1\abis\OHMFRAXBondV2.json
+          file: ETHBondV1/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: ETHBondV1\abis\FRAXBondV1.json
+          file: ETHBondV1/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: ETHBondV1\abis\ETHBondV1.json
+          file: ETHBondV1/abis/ETHBondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -583,7 +583,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: ETHBondV1\ETHBondV1.wasm
+      file: ETHBondV1/ETHBondV1.wasm
   - kind: ethereum/contract
     name: LUSDBond
     network: mainnet
@@ -599,41 +599,41 @@ dataSources:
         - LUSDBond
       abis:
         - name: OlympusStakingV2
-          file: LUSDBond\abis\OlympusStakingV2.json
+          file: LUSDBond/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: LUSDBond\abis\OlympusStakingV1.json
+          file: LUSDBond/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: LUSDBond\abis\sOlympusERC20.json
+          file: LUSDBond/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: LUSDBond\abis\sOlympusERC20V2.json
+          file: LUSDBond/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: LUSDBond\abis\OlympusERC20.json
+          file: LUSDBond/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: LUSDBond\abis\UniswapV2Pair.json
+          file: LUSDBond/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: LUSDBond\abis\DAIBondV1.json
+          file: LUSDBond/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: LUSDBond\abis\DAIBondV2.json
+          file: LUSDBond/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: LUSDBond\abis\DAIBondV3.json
+          file: LUSDBond/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: LUSDBond\abis\OHMDAIBondV1.json
+          file: LUSDBond/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: LUSDBond\abis\OHMDAIBondV2.json
+          file: LUSDBond/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: LUSDBond\abis\OHMDAIBondV3.json
+          file: LUSDBond/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: LUSDBond\abis\OHMDAIBondV4.json
+          file: LUSDBond/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: LUSDBond\abis\OHMFRAXBondV1.json
+          file: LUSDBond/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: LUSDBond\abis\OHMFRAXBondV2.json
+          file: LUSDBond/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: LUSDBond\abis\FRAXBondV1.json
+          file: LUSDBond/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: LUSDBond\abis\ETHBondV1.json
+          file: LUSDBond/abis/ETHBondV1.json
         - name: LUSDBond
-          file: LUSDBond\abis\LUSDBond.json
+          file: LUSDBond/abis/LUSDBond.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -643,7 +643,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: LUSDBond\LUSDBond.wasm
+      file: LUSDBond/LUSDBond.wasm
   - kind: ethereum/contract
     name: OHMLUSDBond
     network: mainnet
@@ -659,43 +659,43 @@ dataSources:
         - OHMLUSDBond
       abis:
         - name: OlympusStakingV2
-          file: OHMLUSDBond\abis\OlympusStakingV2.json
+          file: OHMLUSDBond/abis/OlympusStakingV2.json
         - name: OlympusStakingV1
-          file: OHMLUSDBond\abis\OlympusStakingV1.json
+          file: OHMLUSDBond/abis/OlympusStakingV1.json
         - name: sOlympusERC20
-          file: OHMLUSDBond\abis\sOlympusERC20.json
+          file: OHMLUSDBond/abis/sOlympusERC20.json
         - name: sOlympusERC20V2
-          file: OHMLUSDBond\abis\sOlympusERC20V2.json
+          file: OHMLUSDBond/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: OHMLUSDBond\abis\OlympusERC20.json
+          file: OHMLUSDBond/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: OHMLUSDBond\abis\UniswapV2Pair.json
+          file: OHMLUSDBond/abis/UniswapV2Pair.json
         - name: DAIBondV1
-          file: OHMLUSDBond\abis\DAIBondV1.json
+          file: OHMLUSDBond/abis/DAIBondV1.json
         - name: DAIBondV2
-          file: OHMLUSDBond\abis\DAIBondV2.json
+          file: OHMLUSDBond/abis/DAIBondV2.json
         - name: DAIBondV3
-          file: OHMLUSDBond\abis\DAIBondV3.json
+          file: OHMLUSDBond/abis/DAIBondV3.json
         - name: OHMDAIBondV1
-          file: OHMLUSDBond\abis\OHMDAIBondV1.json
+          file: OHMLUSDBond/abis/OHMDAIBondV1.json
         - name: OHMDAIBondV2
-          file: OHMLUSDBond\abis\OHMDAIBondV2.json
+          file: OHMLUSDBond/abis/OHMDAIBondV2.json
         - name: OHMDAIBondV3
-          file: OHMLUSDBond\abis\OHMDAIBondV3.json
+          file: OHMLUSDBond/abis/OHMDAIBondV3.json
         - name: OHMDAIBondV4
-          file: OHMLUSDBond\abis\OHMDAIBondV4.json
+          file: OHMLUSDBond/abis/OHMDAIBondV4.json
         - name: OHMFRAXBondV1
-          file: OHMLUSDBond\abis\OHMFRAXBondV1.json
+          file: OHMLUSDBond/abis/OHMFRAXBondV1.json
         - name: OHMFRAXBondV2
-          file: OHMLUSDBond\abis\OHMFRAXBondV2.json
+          file: OHMLUSDBond/abis/OHMFRAXBondV2.json
         - name: FRAXBondV1
-          file: OHMLUSDBond\abis\FRAXBondV1.json
+          file: OHMLUSDBond/abis/FRAXBondV1.json
         - name: ETHBondV1
-          file: OHMLUSDBond\abis\ETHBondV1.json
+          file: OHMLUSDBond/abis/ETHBondV1.json
         - name: LUSDBond
-          file: OHMLUSDBond\abis\LUSDBond.json
+          file: OHMLUSDBond/abis/LUSDBond.json
         - name: OHMLUSDBond
-          file: OHMLUSDBond\abis\OHMLUSDBond.json
+          file: OHMLUSDBond/abis/OHMLUSDBond.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleBondCreate
@@ -705,7 +705,7 @@ dataSources:
           handler: handleBondPriceChange
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleControlVariableAdjustment
-      file: OHMLUSDBond\OHMLUSDBond.wasm
+      file: OHMLUSDBond/OHMLUSDBond.wasm
   - kind: ethereum/contract
     name: sOlympusERC20V1
     network: mainnet
@@ -721,15 +721,15 @@ dataSources:
         - sOlympusERC20V1
       abis:
         - name: sOlympusERC20
-          file: sOlympusERC20V1\abis\sOlympusERC20.json
+          file: sOlympusERC20V1/abis/sOlympusERC20.json
         - name: OlympusERC20
-          file: sOlympusERC20V1\abis\OlympusERC20.json
+          file: sOlympusERC20V1/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: sOlympusERC20V1\abis\UniswapV2Pair.json
+          file: sOlympusERC20V1/abis/UniswapV2Pair.json
       callHandlers:
         - function: rebase(uint256)
           handler: rebaseFunction
-      file: sOlympusERC20V1\sOlympusERC20V1.wasm
+      file: sOlympusERC20V1/sOlympusERC20V1.wasm
   - kind: ethereum/contract
     name: sOlympusERC20V2
     network: mainnet
@@ -745,12 +745,12 @@ dataSources:
         - sOlympusERC20V2
       abis:
         - name: sOlympusERC20V2
-          file: sOlympusERC20V2\abis\sOlympusERC20V2.json
+          file: sOlympusERC20V2/abis/sOlympusERC20V2.json
         - name: OlympusERC20
-          file: sOlympusERC20V2\abis\OlympusERC20.json
+          file: sOlympusERC20V2/abis/OlympusERC20.json
         - name: UniswapV2Pair
-          file: sOlympusERC20V2\abis\UniswapV2Pair.json
+          file: sOlympusERC20V2/abis/UniswapV2Pair.json
       callHandlers:
         - function: rebase(uint256,uint256)
           handler: rebaseFunction
-      file: sOlympusERC20V2\sOlympusERC20V2.wasm
+      file: sOlympusERC20V2/sOlympusERC20V2.wasm
