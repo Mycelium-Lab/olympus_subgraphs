@@ -129,17 +129,17 @@ export function createTotalsDaily(timestamp: BigInt, blockNumber: BigInt): total
 
   // ohm 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
-  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
-  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
-  total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
+  total.totalSupply = toDecimal(ohmContract.totalSupply(),9)
+  total.daoBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = total.totalSupply - total.daoBalance
 
   //usd
   if(blockNumber.gt(BigInt.fromString('12112800'))){
 
     let usdRate = getOHMUSDRate()
-    total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
-    total.dollarBalance = total.ohmBalance.times(usdRate)
-    total.marketCapacity = total.circulatingSupply.times(usdRate)
+    total.daoBalanceUsd = total.daoBalance.times(usdRate)
+    total.totalSupplyUsd = total.totalSupply.times(usdRate)
+    total.marketCap = total.circulatingSupply.times(usdRate)
 
   }
 
@@ -167,9 +167,9 @@ export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): tota
 
   // ohm 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
-  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
-  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
-  total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
+  total.totalSupply = toDecimal(ohmContract.totalSupply(),9)
+  total.daoBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = total.totalSupply - total.daoBalance
 
   //parent entity id
   total.totalSupplyDaily = `${date.getUTCFullYear()}-${getNumberDayFromDate(date)}`
@@ -178,9 +178,9 @@ export function createTotalsHourly(timestamp: BigInt, blockNumber: BigInt): tota
   if(blockNumber.gt(BigInt.fromString('12112800'))){
 
     let usdRate = getOHMUSDRate()
-    total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
-    total.dollarBalance = total.ohmBalance.times(usdRate)
-    total.marketCapacity = total.circulatingSupply.times(usdRate)
+    total.daoBalanceUsd = total.daoBalance.times(usdRate)
+    total.totalSupplyUsd = total.totalSupply.times(usdRate)
+    total.marketCap = total.circulatingSupply.times(usdRate)
 
   }
 
@@ -208,9 +208,9 @@ export function createTotalsMinutely(timestamp: BigInt, blockNumber: BigInt): to
 
   // ohm 
   let ohmContract = wOHM.bind(Address.fromString(OHM_ERC20_CONTRACT))
-  total.ohmBalance = toDecimal(ohmContract.totalSupply(),9)
-  total.daoOhmBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
-  total.circulatingSupply = total.ohmBalance - total.daoOhmBalance
+  total.totalSupply = toDecimal(ohmContract.totalSupply(),9)
+  total.daoBalance = toDecimal(ohmContract.balanceOf(Address.fromString("0x245cc372C84B3645Bf0Ffe6538620B04a217988B")),9)
+  total.circulatingSupply = total.totalSupply - total.daoBalance
 
   //parent entity id
   total.totalSupplyHourly = `${date.getUTCFullYear()}-${getNumberDayFromDate(date)}-${date.getUTCHours()}`
@@ -219,9 +219,9 @@ export function createTotalsMinutely(timestamp: BigInt, blockNumber: BigInt): to
   if(blockNumber.gt(BigInt.fromString('12112800'))){
 
     let usdRate = getOHMUSDRate()
-    total.daoDollarBalance = total.daoOhmBalance.times(usdRate)
-    total.dollarBalance = total.ohmBalance.times(usdRate)
-    total.marketCapacity = total.circulatingSupply.times(usdRate)
+    total.daoBalanceUsd = total.daoBalance.times(usdRate)
+    total.totalSupplyUsd = total.totalSupply.times(usdRate)
+    total.marketCap = total.circulatingSupply.times(usdRate)
 
   }
 

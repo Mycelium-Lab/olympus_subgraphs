@@ -552,12 +552,12 @@ export class totalSupplyDaily extends Entity {
     this.set("id", Value.fromString(id));
 
     this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
-    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupplyUsd", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCap", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalanceUsd", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
@@ -597,22 +597,22 @@ export class totalSupplyDaily extends Entity {
     this.set("totalWallets", Value.fromBigInt(value));
   }
 
-  get ohmBalance(): BigDecimal {
-    let value = this.get("ohmBalance");
+  get totalSupply(): BigDecimal {
+    let value = this.get("totalSupply");
     return value!.toBigDecimal();
   }
 
-  set ohmBalance(value: BigDecimal) {
-    this.set("ohmBalance", Value.fromBigDecimal(value));
+  set totalSupply(value: BigDecimal) {
+    this.set("totalSupply", Value.fromBigDecimal(value));
   }
 
-  get dollarBalance(): BigDecimal {
-    let value = this.get("dollarBalance");
+  get totalSupplyUsd(): BigDecimal {
+    let value = this.get("totalSupplyUsd");
     return value!.toBigDecimal();
   }
 
-  set dollarBalance(value: BigDecimal) {
-    this.set("dollarBalance", Value.fromBigDecimal(value));
+  set totalSupplyUsd(value: BigDecimal) {
+    this.set("totalSupplyUsd", Value.fromBigDecimal(value));
   }
 
   get circulatingSupply(): BigDecimal {
@@ -624,31 +624,31 @@ export class totalSupplyDaily extends Entity {
     this.set("circulatingSupply", Value.fromBigDecimal(value));
   }
 
-  get marketCapacity(): BigDecimal {
-    let value = this.get("marketCapacity");
+  get marketCap(): BigDecimal {
+    let value = this.get("marketCap");
     return value!.toBigDecimal();
   }
 
-  set marketCapacity(value: BigDecimal) {
-    this.set("marketCapacity", Value.fromBigDecimal(value));
+  set marketCap(value: BigDecimal) {
+    this.set("marketCap", Value.fromBigDecimal(value));
   }
 
-  get daoOhmBalance(): BigDecimal {
-    let value = this.get("daoOhmBalance");
+  get daoBalance(): BigDecimal {
+    let value = this.get("daoBalance");
     return value!.toBigDecimal();
   }
 
-  set daoOhmBalance(value: BigDecimal) {
-    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  set daoBalance(value: BigDecimal) {
+    this.set("daoBalance", Value.fromBigDecimal(value));
   }
 
-  get daoDollarBalance(): BigDecimal {
-    let value = this.get("daoDollarBalance");
+  get daoBalanceUsd(): BigDecimal {
+    let value = this.get("daoBalanceUsd");
     return value!.toBigDecimal();
   }
 
-  set daoDollarBalance(value: BigDecimal) {
-    this.set("daoDollarBalance", Value.fromBigDecimal(value));
+  set daoBalanceUsd(value: BigDecimal) {
+    this.set("daoBalanceUsd", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt | null {
@@ -692,12 +692,12 @@ export class totalSupplyHourly extends Entity {
     this.set("id", Value.fromString(id));
 
     this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
-    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupplyUsd", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCap", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalanceUsd", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalSupplyDaily", Value.fromString(""));
   }
 
@@ -738,22 +738,22 @@ export class totalSupplyHourly extends Entity {
     this.set("totalWallets", Value.fromBigInt(value));
   }
 
-  get ohmBalance(): BigDecimal {
-    let value = this.get("ohmBalance");
+  get totalSupply(): BigDecimal {
+    let value = this.get("totalSupply");
     return value!.toBigDecimal();
   }
 
-  set ohmBalance(value: BigDecimal) {
-    this.set("ohmBalance", Value.fromBigDecimal(value));
+  set totalSupply(value: BigDecimal) {
+    this.set("totalSupply", Value.fromBigDecimal(value));
   }
 
-  get dollarBalance(): BigDecimal {
-    let value = this.get("dollarBalance");
+  get totalSupplyUsd(): BigDecimal {
+    let value = this.get("totalSupplyUsd");
     return value!.toBigDecimal();
   }
 
-  set dollarBalance(value: BigDecimal) {
-    this.set("dollarBalance", Value.fromBigDecimal(value));
+  set totalSupplyUsd(value: BigDecimal) {
+    this.set("totalSupplyUsd", Value.fromBigDecimal(value));
   }
 
   get circulatingSupply(): BigDecimal {
@@ -765,31 +765,31 @@ export class totalSupplyHourly extends Entity {
     this.set("circulatingSupply", Value.fromBigDecimal(value));
   }
 
-  get marketCapacity(): BigDecimal {
-    let value = this.get("marketCapacity");
+  get marketCap(): BigDecimal {
+    let value = this.get("marketCap");
     return value!.toBigDecimal();
   }
 
-  set marketCapacity(value: BigDecimal) {
-    this.set("marketCapacity", Value.fromBigDecimal(value));
+  set marketCap(value: BigDecimal) {
+    this.set("marketCap", Value.fromBigDecimal(value));
   }
 
-  get daoOhmBalance(): BigDecimal {
-    let value = this.get("daoOhmBalance");
+  get daoBalance(): BigDecimal {
+    let value = this.get("daoBalance");
     return value!.toBigDecimal();
   }
 
-  set daoOhmBalance(value: BigDecimal) {
-    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  set daoBalance(value: BigDecimal) {
+    this.set("daoBalance", Value.fromBigDecimal(value));
   }
 
-  get daoDollarBalance(): BigDecimal {
-    let value = this.get("daoDollarBalance");
+  get daoBalanceUsd(): BigDecimal {
+    let value = this.get("daoBalanceUsd");
     return value!.toBigDecimal();
   }
 
-  set daoDollarBalance(value: BigDecimal) {
-    this.set("daoDollarBalance", Value.fromBigDecimal(value));
+  set daoBalanceUsd(value: BigDecimal) {
+    this.set("daoBalanceUsd", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt | null {
@@ -842,12 +842,12 @@ export class totalSupplyMinutely extends Entity {
     this.set("id", Value.fromString(id));
 
     this.set("totalWallets", Value.fromBigInt(BigInt.zero()));
-    this.set("ohmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupply", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalSupplyUsd", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("circulatingSupply", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("marketCapacity", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoOhmBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("daoDollarBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("marketCap", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalance", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("daoBalanceUsd", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalSupplyHourly", Value.fromString(""));
   }
 
@@ -888,22 +888,22 @@ export class totalSupplyMinutely extends Entity {
     this.set("totalWallets", Value.fromBigInt(value));
   }
 
-  get ohmBalance(): BigDecimal {
-    let value = this.get("ohmBalance");
+  get totalSupply(): BigDecimal {
+    let value = this.get("totalSupply");
     return value!.toBigDecimal();
   }
 
-  set ohmBalance(value: BigDecimal) {
-    this.set("ohmBalance", Value.fromBigDecimal(value));
+  set totalSupply(value: BigDecimal) {
+    this.set("totalSupply", Value.fromBigDecimal(value));
   }
 
-  get dollarBalance(): BigDecimal {
-    let value = this.get("dollarBalance");
+  get totalSupplyUsd(): BigDecimal {
+    let value = this.get("totalSupplyUsd");
     return value!.toBigDecimal();
   }
 
-  set dollarBalance(value: BigDecimal) {
-    this.set("dollarBalance", Value.fromBigDecimal(value));
+  set totalSupplyUsd(value: BigDecimal) {
+    this.set("totalSupplyUsd", Value.fromBigDecimal(value));
   }
 
   get circulatingSupply(): BigDecimal {
@@ -915,31 +915,31 @@ export class totalSupplyMinutely extends Entity {
     this.set("circulatingSupply", Value.fromBigDecimal(value));
   }
 
-  get marketCapacity(): BigDecimal {
-    let value = this.get("marketCapacity");
+  get marketCap(): BigDecimal {
+    let value = this.get("marketCap");
     return value!.toBigDecimal();
   }
 
-  set marketCapacity(value: BigDecimal) {
-    this.set("marketCapacity", Value.fromBigDecimal(value));
+  set marketCap(value: BigDecimal) {
+    this.set("marketCap", Value.fromBigDecimal(value));
   }
 
-  get daoOhmBalance(): BigDecimal {
-    let value = this.get("daoOhmBalance");
+  get daoBalance(): BigDecimal {
+    let value = this.get("daoBalance");
     return value!.toBigDecimal();
   }
 
-  set daoOhmBalance(value: BigDecimal) {
-    this.set("daoOhmBalance", Value.fromBigDecimal(value));
+  set daoBalance(value: BigDecimal) {
+    this.set("daoBalance", Value.fromBigDecimal(value));
   }
 
-  get daoDollarBalance(): BigDecimal {
-    let value = this.get("daoDollarBalance");
+  get daoBalanceUsd(): BigDecimal {
+    let value = this.get("daoBalanceUsd");
     return value!.toBigDecimal();
   }
 
-  set daoDollarBalance(value: BigDecimal) {
-    this.set("daoDollarBalance", Value.fromBigDecimal(value));
+  set daoBalanceUsd(value: BigDecimal) {
+    this.set("daoBalanceUsd", Value.fromBigDecimal(value));
   }
 
   get timestamp(): BigInt | null {
