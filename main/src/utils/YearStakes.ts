@@ -31,7 +31,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == 'stake')
         {
             year.amountStaked=amount;
-            year.dollarStaked=year.amountStaked.times(usdRate);
             year.stakeCount = BigInt.fromString('1')
             year.stakeMax = amount
             
@@ -43,6 +42,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             year.unstakeMax = amount
         }
         year.currentStaked = ohm_balance
+        year.usdRate = usdRate
         year.token=token;
         year.save();
         
@@ -53,7 +53,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         {
             
             year.amountStaked=year.amountStaked.plus(amount);
-            year.dollarStaked=year.amountStaked.times(usdRate);
             year.stakeCount = year.stakeCount.plus(BigInt.fromString('1'))
             if(year.stakeMax < amount)
             {
@@ -71,6 +70,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         }
 
         year.currentStaked = ohm_balance
+        year.usdRate = usdRate
         year.token=token
 
         year.save();
@@ -88,7 +88,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             day.amountStaked=amount;
-            day.dollarStaked=day.amountStaked.times(usdRate);
             day.stakeCount = BigInt.fromString('1')
             day.stakeMax = amount
         }
@@ -98,7 +97,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             day.unstakeMax = amount
         }
         day.currentStaked = ohm_balance
-
+        day.usdRate = usdRate
         day.token=token
         day.save();
 
@@ -110,7 +109,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             day.amountStaked=day.amountStaked.plus(amount);
-            day.dollarStaked=day.amountStaked.times(usdRate);
             day.stakeCount = day.stakeCount.plus(BigInt.fromString('1'))
             if(day.stakeMax < amount)
             {
@@ -126,6 +124,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             }
         }
         day.currentStaked = ohm_balance
+        day.usdRate = usdRate
         day.token=token;      
 
         day.save();
@@ -140,7 +139,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             hour.amountStaked=amount;
-            hour.dollarStaked=hour.amountStaked.times(usdRate);
             hour.stakeCount = BigInt.fromString('1')
             hour.stakeMax = amount
         }
@@ -150,7 +148,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             hour.unstakeMax = amount
         }
         hour.currentStaked = ohm_balance
-
+        hour.usdRate = usdRate
         hour.token=token;   
 
         hour.save();
@@ -163,7 +161,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             hour.amountStaked=hour.amountStaked.plus(amount);
-            hour.dollarStaked=hour.amountStaked.times(usdRate);
             hour.stakeCount = hour.stakeCount.plus(BigInt.fromString('1'))
             if(hour.stakeMax < amount)
             {
@@ -179,7 +176,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             }
         }
         hour.currentStaked = ohm_balance
-
+        hour.usdRate = usdRate
         hour.timestamp=timeStamp;
         hour.token=token;        
         hour.save();
@@ -194,7 +191,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             minute.amountStaked=amount;
-            minute.dollarStaked=minute.amountStaked.times(usdRate);
             minute.stakeCount = BigInt.fromString('1')
             minute.stakeMax = amount
         }
@@ -204,7 +200,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             minute.unstakeMax = amount
         }
         minute.currentStaked = ohm_balance
-
+        minute.usdRate = usdRate
         minute.token=token;        
         minute.save();
         minutes.push(minute.id);
@@ -215,7 +211,6 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
         if(type == "stake")
         {
             minute.amountStaked=minute.amountStaked.plus(amount);
-            minute.dollarStaked=minute.amountStaked.times(usdRate);
             minute.stakeCount = minute.stakeCount.plus(BigInt.fromString('1'))
             if(minute.stakeMax < amount)
             {
@@ -231,7 +226,7 @@ export function StakeAdd(type:string, token:string, amount:BigDecimal, timeStamp
             }
         }
         minute.currentStaked = ohm_balance
-
+        minute.usdRate = usdRate
         minute.timestamp=timeStamp;
         minute.token=token;        
         minute.save();

@@ -1246,7 +1246,7 @@ export class StakeYear extends Entity {
     this.set("totalStaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountStaked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarStaked", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("usdRate", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeAverage", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeMax", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
@@ -1355,13 +1355,13 @@ export class StakeYear extends Entity {
     this.set("amountStaked", Value.fromBigDecimal(value));
   }
 
-  get dollarStaked(): BigDecimal {
-    let value = this.get("dollarStaked");
+  get usdRate(): BigDecimal {
+    let value = this.get("usdRate");
     return value!.toBigDecimal();
   }
 
-  set dollarStaked(value: BigDecimal) {
-    this.set("dollarStaked", Value.fromBigDecimal(value));
+  set usdRate(value: BigDecimal) {
+    this.set("usdRate", Value.fromBigDecimal(value));
   }
 
   get stakeAverage(): BigDecimal {
@@ -1456,7 +1456,7 @@ export class StakeDay extends Entity {
     this.set("totalStaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountStaked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarStaked", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("usdRate", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeAverage", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeMax", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
@@ -1557,13 +1557,13 @@ export class StakeDay extends Entity {
     this.set("amountStaked", Value.fromBigDecimal(value));
   }
 
-  get dollarStaked(): BigDecimal {
-    let value = this.get("dollarStaked");
+  get usdRate(): BigDecimal {
+    let value = this.get("usdRate");
     return value!.toBigDecimal();
   }
 
-  set dollarStaked(value: BigDecimal) {
-    this.set("dollarStaked", Value.fromBigDecimal(value));
+  set usdRate(value: BigDecimal) {
+    this.set("usdRate", Value.fromBigDecimal(value));
   }
 
   get stakeAverage(): BigDecimal {
@@ -1667,7 +1667,7 @@ export class StakeHour extends Entity {
     this.set("totalStaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountStaked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarStaked", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("usdRate", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeAverage", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeMax", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
@@ -1768,13 +1768,13 @@ export class StakeHour extends Entity {
     this.set("amountStaked", Value.fromBigDecimal(value));
   }
 
-  get dollarStaked(): BigDecimal {
-    let value = this.get("dollarStaked");
+  get usdRate(): BigDecimal {
+    let value = this.get("usdRate");
     return value!.toBigDecimal();
   }
 
-  set dollarStaked(value: BigDecimal) {
-    this.set("dollarStaked", Value.fromBigDecimal(value));
+  set usdRate(value: BigDecimal) {
+    this.set("usdRate", Value.fromBigDecimal(value));
   }
 
   get stakeAverage(): BigDecimal {
@@ -1878,7 +1878,7 @@ export class StakeMinute extends Entity {
     this.set("totalStaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountStaked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarStaked", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("usdRate", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeAverage", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeMax", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
@@ -1979,13 +1979,13 @@ export class StakeMinute extends Entity {
     this.set("amountStaked", Value.fromBigDecimal(value));
   }
 
-  get dollarStaked(): BigDecimal {
-    let value = this.get("dollarStaked");
+  get usdRate(): BigDecimal {
+    let value = this.get("usdRate");
     return value!.toBigDecimal();
   }
 
-  set dollarStaked(value: BigDecimal) {
-    this.set("dollarStaked", Value.fromBigDecimal(value));
+  set usdRate(value: BigDecimal) {
+    this.set("usdRate", Value.fromBigDecimal(value));
   }
 
   get stakeAverage(): BigDecimal {
@@ -2089,7 +2089,7 @@ export class Stake extends Entity {
     this.set("totalStaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountStaked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("dollarStaked", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("usdRate", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeAverage", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("stakeMax", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("amountUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
@@ -2190,13 +2190,13 @@ export class Stake extends Entity {
     this.set("amountStaked", Value.fromBigDecimal(value));
   }
 
-  get dollarStaked(): BigDecimal {
-    let value = this.get("dollarStaked");
+  get usdRate(): BigDecimal {
+    let value = this.get("usdRate");
     return value!.toBigDecimal();
   }
 
-  set dollarStaked(value: BigDecimal) {
-    this.set("dollarStaked", Value.fromBigDecimal(value));
+  set usdRate(value: BigDecimal) {
+    this.set("usdRate", Value.fromBigDecimal(value));
   }
 
   get stakeAverage(): BigDecimal {

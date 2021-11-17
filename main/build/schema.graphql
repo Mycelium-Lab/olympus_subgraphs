@@ -127,7 +127,7 @@ type StakeYear @entity {
   totalStaked: BigDecimal!
   totalUnstaked: BigDecimal!
   amountStaked: BigDecimal!
-  dollarStaked: BigDecimal!
+  usdRate: BigDecimal!
   stakeAverage: BigDecimal!
   stakeMax: BigDecimal!
   amountUnstaked: BigDecimal!
@@ -147,7 +147,7 @@ type StakeDay @entity {
   totalStaked: BigDecimal!
   totalUnstaked: BigDecimal!
   amountStaked: BigDecimal!
-  dollarStaked: BigDecimal!
+  usdRate: BigDecimal!
   stakeAverage: BigDecimal!
   stakeMax: BigDecimal!
   amountUnstaked: BigDecimal!
@@ -169,7 +169,7 @@ type StakeHour @entity {
   totalStaked: BigDecimal!
   totalUnstaked: BigDecimal!
   amountStaked: BigDecimal!
-  dollarStaked: BigDecimal!
+  usdRate: BigDecimal!
   stakeAverage: BigDecimal!
   stakeMax: BigDecimal!
   amountUnstaked: BigDecimal!
@@ -191,7 +191,7 @@ type StakeMinute @entity {
   totalStaked: BigDecimal!
   totalUnstaked: BigDecimal!
   amountStaked: BigDecimal!
-  dollarStaked: BigDecimal!
+  usdRate: BigDecimal!
   stakeAverage: BigDecimal!
   stakeMax: BigDecimal!
   amountUnstaked: BigDecimal!
@@ -213,7 +213,7 @@ type Stake @entity {
   totalStaked: BigDecimal!
   totalUnstaked: BigDecimal!
   amountStaked: BigDecimal!
-  dollarStaked: BigDecimal!
+  usdRate: BigDecimal!
   stakeAverage: BigDecimal!
   stakeMax: BigDecimal!
   amountUnstaked: BigDecimal!
