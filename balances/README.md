@@ -97,7 +97,7 @@ Info about amount of supply and number of OHM holders:
 ```graphql
 type totalSupply @entity {
 
-    id: ID!
+	id: ID!
 	totalWallets: BigInt!
 	totalSupply: BigDecimal!
 	totalSupplyUsd: BigDecimal!
