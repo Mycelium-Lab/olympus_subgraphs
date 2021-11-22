@@ -1,0 +1,282 @@
+type ExampleEntity @entity {
+  id: ID!
+  count: BigInt!
+  managing: Int! # uint8
+  activated: Bytes! # address
+}
+
+type DepositEntity @entity {
+  id: ID!
+  address: Bytes!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  timestamp: BigInt!
+}
+
+
+type DebtEntity @entity {
+  id: ID!
+  debtor: Bytes!
+  token: Token!
+  amount: BigDecimal!
+  value:  BigDecimal!
+  creation: Boolean!
+  timestamp: BigInt!
+}
+
+
+
+type ReservesManagedEntity @entity {
+  id: ID!
+  token: Bytes!
+  amount: BigDecimal!
+  timestamp: BigInt!
+}
+
+
+type ReservesYearsEntity @entity{
+  id: ID!
+  timestamp: BigInt!
+  startTotalReserves: BigDecimal!
+  finalTotalReserves: BigDecimal!
+  maxTotalReserves: BigDecimal!
+  minTotalReserves: BigDecimal!
+  medianTotalReserves: BigDecimal!
+  audited: Boolean!
+  reserversDays:[ReservesDaysEntity!]!
+}
+
+type ReservesDaysEntity @entity{
+  id: ID!
+  timestamp: BigInt!
+  startTotalReserves: BigDecimal!
+  finalTotalReserves: BigDecimal!
+  maxTotalReserves: BigDecimal!
+  minTotalReserves: BigDecimal!
+  medianTotalReserves: BigDecimal!
+  audited: Boolean!
+  reserversHours:[ReservesHoursEntity!]!
+}
+
+type ReservesHoursEntity @entity{
+  id: ID!
+  timestamp: BigInt!
+  startTotalReserves: BigDecimal!
+  finalTotalReserves: BigDecimal!
+  maxTotalReserves: BigDecimal!
+  minTotalReserves: BigDecimal!
+  medianTotalReserves: BigDecimal!
+  audited: Boolean!
+  reserversMinutes:[ReservesMinutsEntity!]!
+}
+
+
+type  ReservesMinutsEntity @entity{
+  id: ID!
+  timestamp: BigInt!
+  startTotalReserves: BigDecimal!
+  finalTotalReserves: BigDecimal!
+  maxTotalReserves: BigDecimal!
+  minTotalReserves: BigDecimal!
+  medianTotalReserves: BigDecimal!
+  reservesSeconds:[ReservesEntity!]! 
+  audited: Boolean!
+
+}
+
+
+type ReservesEntity @entity{
+  id: ID!
+  totalReserves: BigDecimal!
+  timestamp: BigInt!
+  audited: Boolean!
+}
+
+type Token @entity{
+  id: ID!
+  timestamp: BigInt!
+}
+
+type DepositFunctionYearEntity @entity
+{ 
+  id: ID!
+  token: Token!
+  sender:  [String!]!
+  profit: BigDecimal!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  sumProfit: BigDecimal!
+  sumValue: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  isDeposit:Boolean!
+  dayDeposit:[DepositFunctionDayEntity!]!
+}
+
+type DepositFunctionDayEntity @entity
+{ 
+  id: ID!
+  token: Token!
+  sender:  [String!]!
+  profit: BigDecimal!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  sumProfit: BigDecimal!
+  sumValue: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  isDeposit:Boolean!
+  hourDeposit:[DepositFunctionHourEntity!]!
+}
+
+type DepositFunctionHourEntity @entity
+{ 
+  id: ID!
+  token: Token!
+  sender: [String!]!
+  profit: BigDecimal!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  sumProfit: BigDecimal!
+  sumValue: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  isDeposit:Boolean!
+  minuteDeposit:[DepositFunctionMinuteEntity!]!
+}
+
+type DepositFunctionMinuteEntity @entity
+{ 
+  id: ID!
+  token: Token!
+  sender: [String!]!
+  profit: BigDecimal!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  sumProfit: BigDecimal!
+  sumValue: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  isDeposit:Boolean!
+  secondDeposit:[DepositFunctionEntity!]!
+}
+
+
+
+type DepositFunctionEntity @entity
+{ 
+  id: ID!
+  token: Token!
+  sender: Bytes!
+  profit: BigDecimal!
+  value:  BigDecimal!
+  amount: BigDecimal!
+  sumProfit: BigDecimal!
+  sumValue: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  isDeposit:Boolean!
+}
+
+
+
+type ManageYearEntity @entity{
+  id:ID!
+  token: Token!
+  sender:[String!]!
+  amount: BigDecimal!
+  sumAmount: BigDecimal!
+  timestamp: BigInt!
+  dayManage:[ManageDayEntity!]!
+}
+
+
+type ManageDayEntity @entity{
+  id:ID!
+  token: Token!
+  sender:[String!]!
+  timestamp: BigInt!
+  amount: BigDecimal!
+  sumAmount: BigDecimal!
+  hourManage:[ManageHourEntity!]!
+}
+
+
+type ManageHourEntity @entity{
+  id:ID!
+  token: Token!
+  timestamp: BigInt!
+  sender:[String!]!
+  amount: BigDecimal!
+  sumAmount: BigDecimal!
+  minuteManage:[ManageMinuteEntity!]!
+}
+
+
+type ManageMinuteEntity @entity{
+  id:ID!
+  token: Token!
+  timestamp: BigInt!
+  sender:[String!]!
+  amount: BigDecimal!
+  sumAmount: BigDecimal!
+  secondManage:[ManageEntity!]!
+}
+
+type ManageEntity @entity{
+  id:ID!
+  token: Token!
+  timestamp: BigInt!
+  sender:String!
+  amount: BigDecimal!
+  sumAmount: BigDecimal!
+}
+
+
+
+type YearRewardsMintedEntity @entity {
+  id: ID!
+  caller : [Bytes!]!
+  recipient:[Bytes!]!
+  amount: BigDecimal!
+  timestamp: BigInt!
+  dayMint:[DayRewardsMintedEntity!]!
+}
+
+type DayRewardsMintedEntity @entity {
+  id: ID!
+  caller :[Bytes!]!
+  recipient:[Bytes!]!
+  amount: BigDecimal!
+  timestamp: BigInt!
+  hourMint:[HourRewardsMintedEntity!]!
+}
+
+type HourRewardsMintedEntity @entity {
+  id: ID!
+  caller : [Bytes!]!
+  recipient: [Bytes!]!
+  amount: BigDecimal!
+  timestamp: BigInt!
+  minuteMint:[MinuteRewardsMintedEntity!]!
+}
+
+type MinuteRewardsMintedEntity @entity {
+  id: ID!
+  caller : [Bytes!]!
+  recipient: [Bytes!]!
+  amount: BigDecimal!
+  timestamp: BigInt!
+  secondMint:[RewardsMintedEntity!]!
+}
+
+
+type RewardsMintedEntity @entity {
+  id: ID!
+  caller : Bytes!
+  recipient: Bytes!
+  amount: BigDecimal!
+  timestamp: BigInt!
+}
+
+
