@@ -85,18 +85,28 @@ type Transfer @entity {
 Info about amount of supply and number of OHM holders:
 - id - entity id
 - totalWallets - number of holders
-- ohmBalance - total ohm balance
+- totalSupply - total ohm balance
+- totalSupplyUsd - total supply in usd
+- circulatingSupply - total supply without dao balance
+- marketCap - circulating supply in usd
+- daoBalance - ohm balance of dao
+- daoBalanceUsd - usd balance of dao
 - day - day of last mint / burn envent
 - timestamp - timestamp last mint / burn event
 
 ```graphql
 type totalSupply @entity {
 
-  id: ID!
-  totalWallets: BigInt!
-  ohmBalance: BigInt!
-  day: BigInt
-  timestamp: BigInt
+    id: ID!
+	totalWallets: BigInt!
+	totalSupply: BigDecimal!
+	totalSupplyUsd: BigDecimal!
+	circulatingSupply: BigDecimal!
+	marketCap: BigDecimal!
+	daoBalance: BigDecimal!
+	daoBalanceUsd: BigDecimal!
+	timestamp: BigInt
+	hours: [totalSupplyHourly!]
 
 }
 
