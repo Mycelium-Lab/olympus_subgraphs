@@ -1,0 +1,121 @@
+type Transfer @entity {
+
+  id: ID!
+  from: Bytes
+  to: Bytes
+  amount: BigDecimal
+  timestamp: BigInt
+
+}
+
+type Wallet @entity {
+  id: ID!
+  address: Bytes
+  sohmBalance: BigInt
+  dailyBalance: [DailyBalance!]! @derivedFrom(field: "wallet")
+  birth: BigInt
+}
+
+
+type totalSupply @entity {
+
+  id: ID!
+  totalWallets: BigInt!
+  sohmBalance: BigInt!
+  day: BigInt
+  timestamp: BigInt
+
+}
+
+type MinuteBalance @entity {
+  id: ID!
+  sohmBalance: BigInt!
+  hourBalance: HourBalance!
+  timestamp: BigInt
+  address: Bytes
+  minute: BigInt
+}
+
+type HourBalance @entity {
+  id: ID!
+  sohmBalance: BigInt
+  minuteBalance: [MinuteBalance!] @derivedFrom(field: "hourBalance")
+  dailyBalance: DailyBalance!
+  timestamp: BigInt
+  address: Bytes
+  hour: BigInt
+}
+
+type LogRebase @entity {
+  id: ID!
+  timestamp: BigInt
+  epoch: BigInt
+  rebase: BigInt
+  index: BigInt
+}
+
+type LogRebaseDaily @entity {
+  id: ID!
+  timestamp: String
+  epoch: BigInt
+  rebase: BigInt
+  hours: [LogRebaseHourly!] @derivedFrom(field:"logRebaseDaily")
+  index: BigInt
+}
+
+type LogRebaseHourly @entity {
+  id: ID!
+  timestamp: String
+  epoch: BigInt
+  rebase: BigInt
+  logRebaseDaily: LogRebaseDaily!
+  minutes: [LogRebaseMinute!] @derivedFrom(field:"logRebaseHourly")
+  index: BigInt
+}
+
+type LogRebaseMinute @entity {
+  id: ID!
+  timestamp: String
+  epoch: BigInt
+  rebase: BigInt
+  logRebaseHourly: LogRebaseHourly!
+  index: BigInt
+}
+
+type DailyBalance @entity {
+  id: ID!
+  sohmBalance: BigInt
+  hourBalance: [HourBalance!] @derivedFrom(field: "dailyBalance")
+  wallet: Wallet!
+  timestamp: BigInt
+  address: Bytes
+  day: BigInt
+}
+
+type SohmiesDaily @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  hours: [SohmiesHourly!] @derivedFrom(field: "sohmiesDaily")
+
+}
+
+type SohmiesHourly @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  sohmiesDaily: SohmiesDaily!
+  minutes: [SohmiesMinutely!] @derivedFrom(field: "sohmiesHourly")
+
+}
+
+type SohmiesMinutely @entity {
+
+  id: ID!
+  timestamp: BigInt!
+  holders: BigInt!
+  sohmiesHourly: SohmiesHourly!
+
+}
