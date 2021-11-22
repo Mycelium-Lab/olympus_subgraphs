@@ -1,0 +1,160 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Contract
+    network: mainnet
+    source:
+      address: "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c"
+      abi: Contract
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - Burn
+        - Mint
+        - Swap
+        - Sync
+        - Transfer
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Burn(indexed address,uint256,uint256,indexed address)
+          handler: handleBurn
+        - event: Mint(indexed address,uint256,uint256)
+          handler: handleMint
+        - event: Swap(indexed address,uint256,uint256,uint256,uint256,indexed address)
+          handler: handleSwap
+        - event: Sync(uint112,uint112)
+          handler: handleSync
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: LUSD
+    network: mainnet
+    source:
+      address: "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"
+      abi: LUSD
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: LUSD
+          file: ./abis/LUSD.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/LUSD.ts
+  - kind: ethereum/contract
+    name: UNI_V2
+    network: mainnet
+    source:
+      address: "0x2dcE0dDa1C2f98e0F171DE8333c3c6Fe1BbF4877"
+      abi: UNI_V2
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  UNI_V2
+          file: ./abis/UNI_V2.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/UNI_V2.ts
+  - kind: ethereum/contract
+    name: DAI
+    network: mainnet
+    source:
+      address: "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+      abi: DAI
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  DAI
+          file: ./abis/DAI.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/DAI.ts
+  - kind: ethereum/contract
+    name: FRAX
+    network: mainnet
+    source:
+      address: "0x853d955acef822db058eb8505911ed77f175b99e"
+      abi: FRAX
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  FRAX
+          file: ./abis/FRAX.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/FRAX.ts
+  - kind: ethereum/contract
+    name: UniswapV2
+    network: mainnet
+    source:
+      address: "0xfDf12D1F85b5082877A6E070524f50F6c84FAa6b"
+      abi: UniswapV2
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  UniswapV2
+          file: ./abis/UniswapV2.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/UniswapV2.ts
+  - kind: ethereum/contract
+    name: WETH
+    network: mainnet
+    source:
+      address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      abi: WETH
+      startBlock: 12525281	
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name:  WETH
+          file: ./abis/WETH.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/WETH.ts
+      
