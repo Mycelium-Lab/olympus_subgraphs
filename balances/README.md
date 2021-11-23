@@ -4,14 +4,15 @@
 
 https://api.thegraph.com/subgraphs/name/deltax2016/olympus-wallets
 
-## Main Entities
-
 ## Tracks
 
 - Transfers
 - Mints/Burns
 - Wallet activations
 - Total supply changes
+
+
+## Main Entities
 
 ### Wallets
 
