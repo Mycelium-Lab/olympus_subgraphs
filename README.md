@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://app.olympusdao.finance/#/dashboard" target="_blank">
-    <img width="150" src="./img/android-chrome-192x192.png">
+    <img width="150" src="./__img/android-chrome-192x192.png">
   </a>
   <h1>Olympus Monitoring Subgraphs</h1>
 </div>
