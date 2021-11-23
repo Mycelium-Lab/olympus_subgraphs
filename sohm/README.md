@@ -4,6 +4,13 @@
 
 https://api.thegraph.com/subgraphs/name/deltax2016/olympus-sohm
 
+## Tracks
+
+- Sohm balances
+- Rebase indexes
+- Total sohm holders
+- Rebase timestamps
+
 ## Main Entities
 
 ### Wallets
