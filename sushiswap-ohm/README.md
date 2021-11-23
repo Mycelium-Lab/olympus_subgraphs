@@ -1,6 +1,6 @@
-# SushiSwap Subgraph
+# SushiSwap-OHM
 
-This subgraph dynamically tracks swaps on SushiSwap and 
+This subgraph dynamically tracks swaps on SushiSwap which contain OHM token as part of the pair.
 
 ## Deployment
 

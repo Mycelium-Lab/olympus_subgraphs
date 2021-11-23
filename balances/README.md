@@ -1,12 +1,4 @@
-<!-- markdownlint-disable no-inline-html first-line-h1 -->
-
-<div align="center">
-  <a href="https://app.olympusdao.finance/#/dashboard" target="_blank">
-    <img width="150" src="./img/android-chrome-192x192.png">
-  </a>
-  <h1>Olympus OHM wallets</h1>
-</div>
-
+ <h1>OHM Wallets</h1>
 
 ## API url
 
