@@ -9,7 +9,7 @@ import {
 } from "../generated/wOHM/wOHM"
 //import { ExampleEntity } from "../generated/schema"
 import { Transfer as TransferOHM } from '../generated/schema'
-import { createWallet, createTotalsDaily } from './utils/wallets'
+import { createWallet } from './utils/wallets'
 import { Mint, Minter, Burn } from '../generated/schema'
 import {SOHM_ERC20_CONTRACT, OHM_ERC20_CONTRACT} from './utils/Constants'
 
@@ -28,8 +28,6 @@ export function handleMint(call: MintCall): void {
   entity.timestamp = call.block.timestamp
   entity.save()
 
-  createTotalsDaily(call.block.timestamp, call.block.number)
-
   createWallet(call.inputs.account_, call.block.timestamp, call.transaction.hash)
 
 }
@@ -43,8 +41,6 @@ export function handleBurn(call: BurnCall): void {
 
   entity.value = call.inputs.amount
   entity.save()
-
-  createTotalsDaily(call.block.timestamp, call.block.number)
 
 }
 
