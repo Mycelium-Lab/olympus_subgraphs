@@ -1,8 +1,8 @@
- <h1>OHM Wallets</h1>
+ <h1>OHM Totals</h1>
 
 ## API url
 
-https://api.thegraph.com/subgraphs/name/deltax2016/olympus-wallets
+https://api.thegraph.com/subgraphs/name/deltax2016/olympus-total
 
 ## Tracks
 
