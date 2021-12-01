@@ -9,7 +9,6 @@ https://api.thegraph.com/subgraphs/name/deltax2016/olympus-wallets
 - Transfers
 - Mints/Burns
 - Wallet activations
-- Total supply changes
 
 
 ## Main Entities
@@ -78,38 +77,6 @@ type Transfer @entity {
   timestamp: BigInt
 
 }
-```
-
-### totalSupply
-
-Info about amount of supply and number of OHM holders:
-- id - entity id
-- totalWallets - number of holders
-- totalSupply - total ohm balance
-- totalSupplyUsd - total supply in usd
-- circulatingSupply - total supply without dao balance
-- marketCap - circulating supply in usd
-- daoBalance - ohm balance of dao
-- daoBalanceUsd - usd balance of dao
-- day - day of last mint / burn envent
-- timestamp - timestamp last mint / burn event
-
-```graphql
-type totalSupply @entity {
-
-	id: ID!
-	totalWallets: BigInt!
-	totalSupply: BigDecimal!
-	totalSupplyUsd: BigDecimal!
-	circulatingSupply: BigDecimal!
-	marketCap: BigDecimal!
-	daoBalance: BigDecimal!
-	daoBalanceUsd: BigDecimal!
-	timestamp: BigInt
-	hours: [totalSupplyHourly!]
-
-}
-
 ```
 
 ### Minter
