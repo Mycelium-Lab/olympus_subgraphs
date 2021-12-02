@@ -12,7 +12,8 @@ Subgraphs in this repository are split into 6 groups/folders:
 <li>main (staking, bonds, rebases)</li>
 <li>sushiswap-ohm (ohm price)</li>
 <li>treasury (deposits, withdrawals, etc.)</li>
-<li>treasury_tokens (treasury balance in various "reserve" tokens)</li>
-<li>balances (wallets, transfer, mints, supply, etc.)</li>
+<li>treasury-tokens (treasury balance in various "reserve" tokens)</li>
+<li>ohm-wa (wallets, transfers, mints, etc. for Wallet Analytics)</li>
+<li>ohm-ga (wallets, transfers, mints, supply, etc. for General Analytics/Dashboard)</li>
 <li>sohm (sOHM index, sOHM balances)</li>
 </ul>

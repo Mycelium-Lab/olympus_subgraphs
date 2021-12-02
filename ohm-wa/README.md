@@ -1,4 +1,4 @@
- <h1>OHM Wallets</h1>
+ <h1>OHM (Wallet Analytics)</h1>
 
 ## API url
 
@@ -9,6 +9,8 @@ https://api.thegraph.com/subgraphs/name/deltax2016/olympus-wallets
 - Transfers
 - Mints/Burns
 - Wallet activations
+
+(OHM Stats for Wallet Analytics)
 
 
 ## Main Entities

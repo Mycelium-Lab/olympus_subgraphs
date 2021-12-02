@@ -1,4 +1,4 @@
- <h1>OHM Totals</h1>
+ <h1>OHM (General Analytics/Dashboard)</h1>
 
 ## API url
 
@@ -6,7 +6,7 @@ https://api.thegraph.com/subgraphs/name/deltax2016/olympus-total
 
 ## Tracks
 
-- Total supply changes
+- OHM Stats for General Analytics / Dashboard (multi-interval data)
 
 
 ## Main Entities
